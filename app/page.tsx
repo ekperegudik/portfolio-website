@@ -11,10 +11,10 @@ export default function HomePage() {
       <section className="mb-20">
         <div className="max-w-3xl">
           <h1 className="mb-6 text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-            <span className="text-balance leading-[1.7rem]">Создаю продукты, которые работают незаметноan>
+            <span className="text-balance leading-[1.7rem]"> Создаю продукты, которые работают незаметноan>
           </h1>
           <p className="mb-8 text-lg leading-relaxed text-muted-foreground sm:text-xl">
-            Прдоуктовый дизайнер с 2019 года. 
+            Продуктовый дизайнер с 2019 года. 
             Опираюсь на исследования и данные, помогаю повышать вовлечённость пользователей.
           </p>
           <div className="flex flex-col gap-4 sm:flex-row">
