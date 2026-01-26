@@ -24,8 +24,7 @@ export function Header() {
           href="/" 
           className="text-lg font-semibold tracking-tight text-foreground transition-colors hover:text-primary"
         >
-          ekperegudova
-        </Link>
+          Перегудова Екатерина  </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden items-center gap-8 md:flex">
