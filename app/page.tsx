@@ -14,7 +14,7 @@ export default function HomePage() {
             <span className="text-balance">Создаю продукты, которые работают незаметно</span>
           </h1>
           <p className="mb-8 text-lg leading-relaxed text-muted-foreground sm:text-xl">
-            Дизайнер продукта с 7-летним опытом создания цифровых решений. 
+            Продуктовый дизайнер с 2019 года. 
             Опираюсь на исследования и данные, помогаю повышать вовлечённость пользователей.
           </p>
           <div className="flex flex-col gap-4 sm:flex-row">
