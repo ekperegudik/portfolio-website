@@ -11,10 +11,10 @@ export default function HomePage() {
       <section className="mb-20">
         <div className="max-w-3xl">
           <h1 className="mb-6 text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-            <span className="text-balance">Проектирую продукты, которые работают незаметно</span>
+            <span className="text-balance">Создаю продукты, которые работают незаметно</span>
           </h1>
           <p className="mb-8 text-lg leading-relaxed text-muted-foreground sm:text-xl">
-            Дизайнер продукта с 7-летним опытом создания цифровых решений. 
+            Прдоуктовый дизайнер с 2019 года. 
             Опираюсь на исследования и данные, помогаю повышать вовлечённость пользователей.
           </p>
           <div className="flex flex-col gap-4 sm:flex-row">
@@ -26,7 +26,7 @@ export default function HomePage() {
             </Button>
             <Button asChild variant="outline" size="lg" className="gap-2 bg-transparent">
               <Link href="/about">
-                Почитать обо мне
+                Обо мне
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>
@@ -42,7 +42,7 @@ export default function HomePage() {
               Избранные проекты
             </h2>
             <p className="text-muted-foreground">
-              Подборка моих лучших работ за последние годы
+              Подборка работ за последние годы
             </p>
           </div>
         </div>
