@@ -11,7 +11,7 @@ export default function HomePage() {
       <section className="mb-20">
         <div className="max-w-3xl">
           <h1 className="mb-6 text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-            <span className="text-balance leading-[1.7rem]"> Создаю продукты, которые работают незаметно </span>
+            <span className="text-balance leading-[1.7rem] font-thin">  Создаю продукты, которые работают незаметно  </span>
           </h1>
           <p className="mb-8 text-lg leading-relaxed text-muted-foreground sm:text-xl">
             Продуктовый дизайнер с 2019 года. 
