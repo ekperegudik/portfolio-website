@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 const experience = [
   {
-    role: "Старший UX дизайнер & Менеджер продукта Atom.Market",
+    role: "Старший UX дизайнер & Менеджер продукта Atom Market",
     company: <a href="https://atom.auto/" className="text-primary hover:underline">ATOM</a>,
     period: "Январь 2024 — Сентябрь 2025",
     description: "Проектирование логики мобильного приложения для дистанционного управления электромобилем АТОМ. Разработка маркетплейса цифрового контента, доступного с нескольких тачпоинтов: web, mobile, SWP, HUD, голосовой ассистент. Координация кросс-функциональной команды.",

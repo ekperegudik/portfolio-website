@@ -19,7 +19,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { id } = await params
   const project = getProjectById(id)
-  
+
   if (!project) {
     return {
       title: "Проект не найден",
@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   return {
-    title: `${project.title} — Алексей Петров`,
+    title: `${project.title} — Катерина Перегудова`,
     description: project.description,
   }
 }
@@ -64,13 +64,13 @@ export default async function ProjectPage({ params }: PageProps) {
           <span className="text-muted-foreground">•</span>
           <span className="text-sm text-muted-foreground">{project.year}</span>
         </div>
-        
+
         <h1 className="mb-4 text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
           {project.title}
         </h1>
-        
+
         <p className="text-lg text-muted-foreground">{project.description}</p>
-        
+
         <div className="mt-6 flex flex-wrap gap-2">
           {project.tags.map((tag) => (
             <span
@@ -131,15 +131,24 @@ export default async function ProjectPage({ params }: PageProps) {
           <h2 className="mb-6 text-xl font-semibold tracking-tight text-foreground">
             Процесс
           </h2>
-          <ol className="space-y-4">
-            {project.process.map((step, index) => (
-              <li key={index} className="flex gap-4">
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-medium text-primary-foreground">
-                  {index + 1}
+          <ol className="space-y-6">
+            {project.process.map((stepObj, index) => (
+              <li key={index} className="flex flex-col gap-2">
+                <span className="flex items-center gap-4">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-medium text-primary-foreground">
+                    {index + 1}
+                  </span>
+                  <span className="leading-none font-regular text-md text-secondary-foreground">
+                    {stepObj.step}
+                  </span>
                 </span>
-                <span className="pt-1 leading-relaxed text-muted-foreground">
-                  {step}
-                </span>
+                <ul className="pl-12 list-disc space-y-1 text-muted-foreground">
+                  {stepObj.detailes.map((item, i) => (
+                    <li key={i} className="text-base leading-relaxed">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </li>
             ))}
           </ol>
@@ -175,7 +184,7 @@ export default async function ProjectPage({ params }: PageProps) {
           <p className="mb-6 leading-relaxed text-muted-foreground">
             {project.result}
           </p>
-          
+
           {project.resultMetrics && (
             <div className="grid gap-4 sm:grid-cols-3">
               {project.resultMetrics.map((metric) => (
@@ -209,7 +218,7 @@ export default async function ProjectPage({ params }: PageProps) {
           ) : (
             <div />
           )}
-          
+
           {nextProject && (
             <Button asChild variant="outline" className="gap-2 bg-transparent">
               <Link href={`/projects/${nextProject.id}`}>
