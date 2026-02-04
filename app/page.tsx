@@ -39,10 +39,10 @@ export default function HomePage() {
         <div className="mb-10 flex items-center justify-between">
           <div>
             <h2 className="mb-2 text-2xl font-semibold tracking-tight text-foreground">
-              Ключевые проекты
+              Мои работы
             </h2>
             <p className="text-muted-foreground">
-              То, чем я горжусь: от интерфейсов до продуктовых концепций.
+              От интерфейсов до продуктовых решений
             </p>
           </div>
         </div>
