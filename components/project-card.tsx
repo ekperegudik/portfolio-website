@@ -19,7 +19,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
         </div>
-        
+
         <div className="p-6">
           <div className="mb-3 flex items-center justify-between">
             <span className="text-xs font-medium uppercase tracking-wider text-primary">
@@ -27,15 +27,15 @@ export function ProjectCard({ project }: ProjectCardProps) {
             </span>
             <span className="text-xs text-muted-foreground">{project.year}</span>
           </div>
-          
+
           <h3 className="mb-2 text-xl font-semibold tracking-tight text-foreground transition-colors group-hover:text-primary">
             {project.title}
           </h3>
-          
+
           <p className="mb-4 text-sm leading-relaxed text-muted-foreground">
             {project.description}
           </p>
-          
+
           <div className="flex flex-wrap gap-2">
             {project.tags.slice(0, 3).map((tag) => (
               <span

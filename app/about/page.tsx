@@ -1,4 +1,9 @@
 import Image from "next/image"
+import {
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+} from "@/components/ui/dialog"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Download, Mail, ArrowRight } from "lucide-react"
@@ -20,7 +25,7 @@ const experience = [
     role: "Руководитель отдела дизайна",
     company: <a href="https://geosemantica.ru/" className="text-primary hover:underline">Геосемантика</a>,
     period: "Июль 2023 — Декабрь 2023",
-    description: "Инициация и осуществление масштабного редизайна платформы мониторинга устойчивости горных пород для Кузбасразрезуголь. Проектирование GIS-интерфейсов с фокусом на промышленную безопасность. Создание и поддержка специализированной библиотеки компонентов.",
+    description: "Инициация и осуществление масштабного редизайна платформы мониторинга устойчивости горных пород для Кузбассразрезуголь. Проектирование GIS-интерфейсов с фокусом на промышленную безопасность. Создание и поддержка специализированной библиотеки компонентов.",
   },
   {
     role: "Ведущий дизайнер UX/UI",

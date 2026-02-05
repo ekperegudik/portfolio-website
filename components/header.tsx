@@ -47,7 +47,7 @@ export function Header() {
 
         <div className="hidden items-center gap-4 md:flex">
           <Button asChild size="sm" className="gap-2">
-            <a href="/resume.pdf" download>
+            <a href="https://disk.yandex.ru/i/ASC9Xzl24TqZUQ" target="_blank">
               <Download className="h-4 w-4" />
               Скачать резюме
             </a>
@@ -88,7 +88,7 @@ export function Header() {
               </Link>
             ))}
             <Button asChild size="sm" className="mt-4 gap-2">
-              <a href="/resume.pdf" download>
+              <a href="https://disk.yandex.ru/i/ASC9Xzl24TqZUQ" target="_blank">
                 <Download className="h-4 w-4" />
                 Скачать резюме
               </a>

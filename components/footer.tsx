@@ -10,7 +10,7 @@ export function Footer() {
               Катерина Перегудова
             </span>
             <span className="text-sm text-muted-foreground">
-              Дизайнер продукта
+              Продуктовый дизайнер
             </span>
           </div>
 

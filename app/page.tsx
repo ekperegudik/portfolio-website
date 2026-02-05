@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Download, ArrowRight } from "lucide-react"
 import Link from "next/link"
 
+
 export default function HomePage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
@@ -15,11 +16,11 @@ export default function HomePage() {
           </h1>
           <p className="mb-8 text-lg leading-relaxed text-muted-foreground sm:text-xl">
             Продуктовый дизайнер, 7 лет опыта. 
-            Опираюсь на исследования и данные, чтобы создавать удобные и эффективные цифровые продукты.
+            Начинала свою карьеру в Газпромнефти, создавая красивые и удобные аналитические дашборды. После проектировала облачные сервисы, B2B SaaS, Travel Tech и in-car продукты.
           </p>
           <div className="flex flex-col gap-4 sm:flex-row">
             <Button asChild size="lg" className="gap-2">
-              <a href="/resume.pdf" download>
+              <a href="https://disk.yandex.ru/i/ASC9Xzl24TqZUQ" target="_blank">
                 <Download className="h-4 w-4" />
                 Скачать резюме
               </a>
@@ -39,7 +40,7 @@ export default function HomePage() {
         <div className="mb-10 flex items-center justify-between">
           <div>
             <h2 className="mb-2 text-2xl font-semibold tracking-tight text-foreground">
-              Мои работы
+              Последние работы
             </h2>
             <p className="text-muted-foreground">
               От интерфейсов до продуктовых решений

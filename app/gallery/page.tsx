@@ -1,5 +1,12 @@
 import Image from "next/image"
+import {
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+  DialogTitle,
+} from "@/components/ui/dialog"
 import type { Metadata } from "next"
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden"
 
 export const metadata: Metadata = {
   title: "Галерея — Катерина Перегудова",
@@ -84,25 +91,46 @@ export default function GalleryPage() {
 
       {/* Gallery Grid */}
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {galleryItems.map((item, index) => (
-          <div
-            key={item.src}
-            className="group relative aspect-[4/3] overflow-hidden rounded-lg bg-muted"
-          >
-            <Image
-              src={item.src || "/placeholder.svg"}
-              alt={item.alt}
-              fill
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-            <div className="absolute bottom-0 left-0 right-0 p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              <span className="text-xs font-medium uppercase tracking-wider text-primary">
-                {item.category}
-              </span>
-              <p className="mt-1 text-sm text-foreground">{item.alt}</p>
-            </div>
-          </div>
+        {galleryItems.map((item) => (
+          <Dialog key={item.src}>
+            <DialogTrigger asChild>
+              <div className="group relative aspect-[4/3] overflow-hidden rounded-lg bg-muted cursor-zoom-in">
+                <Image
+                  src={item.src || "/placeholder.svg"}
+                  alt={item.alt}
+                  fill
+                  className="w-auto h-auto max-w-[90vw] max-h-[90vh] object-contain rounded"
+                />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+
+                <div className="absolute bottom-0 left-0 right-0 p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  <span className="text-xs font-medium uppercase tracking-wider text-primary">
+                    {item.category}
+                  </span>
+                  <p className="mt-1 text-sm text-foreground">
+                    {item.alt}
+                  </p>
+                </div>
+              </div>
+            </DialogTrigger>
+
+            {/* Fullscreen preview */}
+            <DialogContent className="w-screen h-screen max-w-none p-0">
+              <VisuallyHidden>
+                <DialogTitle>{item.alt}</DialogTitle>
+              </VisuallyHidden>
+
+              <div className="relative w-full h-full">
+                <Image
+                  src={item.src}
+                  alt={item.alt}
+                  fill
+                   className="w-full h-full object-contain"
+                />
+              </div>
+            </DialogContent>
+          </Dialog>
         ))}
       </div>
     </div>
