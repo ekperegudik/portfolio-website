@@ -11,10 +11,10 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="mb-20">
         <div className="max-w-3xl">
-          <h1 className="mb-6 text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-            Сложные интерфейсы — интуитивное взаимодействие
+          <h1 className="leading-[1.2] mb-6 text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+            Сложные интерфейсы, интуитивное взаимодействие
           </h1>
-          <p className="mb-8 text-lg leading-relaxed text-muted-foreground sm:text-xl">
+          <p className="mb-8 text-lg leading-[1.8rem] text-muted-foreground sm:text-xl">
             Продуктовый дизайнер, 7 лет опыта. 
             Начинала свою карьеру в Газпромнефти, создавая красивые и удобные аналитические дашборды. После проектировала облачные сервисы, B2B SaaS, Travel Tech и in-car продукты.
           </p>

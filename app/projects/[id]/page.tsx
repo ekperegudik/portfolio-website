@@ -101,7 +101,7 @@ export default async function ProjectPage({ params }: PageProps) {
           <h2 className="mb-4 text-xl font-semibold tracking-tight text-foreground">
             Обзор
           </h2>
-          <p className="leading-relaxed text-muted-foreground">
+          <p className="leading-[1.4rem] text-muted-foreground">
             {project.overview}
           </p>
         </section>
@@ -111,7 +111,7 @@ export default async function ProjectPage({ params }: PageProps) {
           <h2 className="mb-4 text-xl font-semibold tracking-tight text-foreground">
             Проблема
           </h2>
-          <p className="leading-relaxed text-muted-foreground">
+          <p className="leading-[1.4rem] text-muted-foreground">
             {project.problem}
           </p>
         </section>
@@ -121,7 +121,7 @@ export default async function ProjectPage({ params }: PageProps) {
           <h2 className="mb-4 text-xl font-semibold tracking-tight text-foreground">
             Решение
           </h2>
-          <p className="leading-relaxed text-muted-foreground">
+          <p className="leading-[1.4rem] text-muted-foreground">
             {project.solution}
           </p>
         </section>
@@ -138,13 +138,13 @@ export default async function ProjectPage({ params }: PageProps) {
                   <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-medium text-primary-foreground">
                     {index + 1}
                   </span>
-                  <span className="leading-none font-regular text-md text-secondary-foreground">
+                  <span className="leading-[1.4rem] font-regular text-md text-secondary-foreground">
                     {stepObj.step}
                   </span>
                 </span>
                 <ul className="pl-12 list-disc space-y-1 text-muted-foreground">
                   {stepObj.detailes.map((item, i) => (
-                    <li key={i} className="text-base leading-relaxed">
+                    <li key={i} className="leading-[1.4rem] text-base">
                       {item}
                     </li>
                   ))}

@@ -88,13 +88,13 @@ export default function AboutPage() {
 
           {/* Bio */}
           <div className="flex-1">
-            <h1 className="mb-4 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            <h1 className="mb-6 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
               Приветствую!
             </h1>
-            <p className="mb-8 leading-relaxed text-muted-foreground">
+            <p className="mb-4 leading-[1.4rem] text-muted-foreground">
               Я дизайнер UX, UI, продуктов, высоконагруженных интерфейсов, а также ящичка со специями на своей кухне. Структурирую и упорядочиваю всё, до чего могу дотянуться.
             </p>
-            <p className="mb-8 leading-relaxed text-muted-foreground">
+            <p className="mb-8 leading-[1.4rem] text-muted-foreground">
               За 7 лет профессионального опыта "дотянулась" до нефтегазовой и угольной промышленностей, GIS-систем и travel-tech, проектировала дашборды для ТОП-менеджеров Газпромнефти и интерфейсы для электромобиля АТОМ. Люблю сложные задачи и нетривиальные решения.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row">
@@ -120,8 +120,8 @@ export default function AboutPage() {
               key={item.title}
               className="rounded-xl border border-border/40 bg-card p-6"
             >
-              <h3 className="mb-3 font-semibold text-foreground">{item.title}</h3>
-              <p className="text-sm leading-relaxed text-muted-foreground">{item.description}</p>
+              <h3 className="mb-2 font-semibold text-foreground">{item.title}</h3>
+              <p className="text-sm leading-[1.4rem] text-muted-foreground">{item.description}</p>
             </div>
           ))}
         </div>
@@ -132,18 +132,18 @@ export default function AboutPage() {
         <h2 className="mb-8 text-2xl font-semibold tracking-tight text-foreground">
           Опыт работы
         </h2>
-        <div className="space-y-8">
+        <div className="space-y-12">
           {experience.map((job) => (
             <div
               key={`${job.company}-${job.role}`}
               className="border-l-2 border-border pl-6"
             >
-              <div className="mb-1 flex flex-col gap-1 sm:flex-row sm:items-center sm:gap-3">
+              <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:gap-3">
                 <h3 className="font-semibold text-foreground">{job.role}</h3>
                 <span className="hidden text-muted-foreground sm:inline">•</span>
                 <span className="text-primary">{job.company}</span>
               </div>
-              <p className="mb-2 text-sm text-muted-foreground">{job.period}</p>
+              <p className="mb-4 mt-2 text-sm text-muted-foreground">{job.period}</p>
               <p className="text-muted-foreground">{job.description}</p>
             </div>
           ))}
@@ -184,7 +184,7 @@ export default function AboutPage() {
       {/* CTA */}
       <section className="rounded-xl border border-border/40 bg-card p-8 text-center">
         <h2 className="mb-3 text-xl font-semibold text-foreground">
-          Вам есть что мне предложить?
+          Будем на связи?
         </h2>
         <p className="mb-6 text-muted-foreground">
           Я всегда открыта для сотрудничества
