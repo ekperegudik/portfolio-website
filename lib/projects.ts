@@ -14,6 +14,7 @@ export interface Project {
   result: string
   resultMetrics?: { label: string; value: string }[]
   galleryImages: string []
+  figmaEmbedUrl?: string
 }
 
 export const projects: Project[] = [
@@ -55,9 +56,9 @@ export const projects: Project[] = [
     galleryImages: [
       "/projects/atom-1.jpg",
       "/projects/atom-2.jpg",
-      "/projects/atom-3.jpg"
-    ]
+      "/projects/atom-3.jpg"]
   },
+  
   {
     id: "KRU",
     title: "Дашборд главного диспетчера",
@@ -97,9 +98,9 @@ export const projects: Project[] = [
       { label: "Срок реализации", value: "7 мес." }
     ],
     galleryImages: [
-      "/projects/gis-1.jpg",
-      "/projects/gis-2.jpg",
-      "/projects/gis-3.jpg"
+      "/projects/gis-1.png",
+      "/projects/gis-2.png",
+      "/projects/gis-3.png"
     ]
   },
   {
@@ -135,10 +136,11 @@ export const projects: Project[] = [
       { label: "Охват проектов единой стратегией", value: "100%" }
     ],
     galleryImages: [
-      "/projects/nedra-1.jpg",
-      "/projects/nedra-2.jpg",
-      "/projects/nedra-3.jpg"
-    ]
+      "/projects/ux-0.png",
+      "/projects/ux-1.png",
+      "/projects/ux-2.png"
+    ],
+    figmaEmbedUrl: "https://www.figma.com/design/cGQi3D54OOc73CEjVejvh7/UX-Framework-by-Peregudova?node-id=0-1&t=XrQpng5umZg37r9k-1"
   },
   {
     id: "pixorion-ai",

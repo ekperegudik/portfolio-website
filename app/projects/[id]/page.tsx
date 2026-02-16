@@ -1,48 +1,61 @@
-import { notFound } from "next/navigation"
-import Image from "next/image"
-import Link from "next/link"
-import { ArrowLeft, ArrowRight } from "lucide-react"
-import { projects, getProjectById } from "@/lib/projects"
-import { Button } from "@/components/ui/button"
-import type { Metadata } from "next"
-
+import { notFound } from "next/navigation";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import { projects, getProjectById } from "@/lib/projects";
+import { Button } from "@/components/ui/button";
+import { IncludeImageCarousel } from "@/components/IncludeImageCarousel";
+import { BeforeAfterSlider } from "@/components/ui/BeforeAfterSlider";
+import { FigmaEmbed } from "@/components/FigmaEmbed";
+import type { Metadata } from "next";
 interface PageProps {
-  params: Promise<{ id: string }>
+  params: Promise<{ id: string }>;
 }
 
 export async function generateStaticParams() {
   return projects.map((project) => ({
     id: project.id,
-  }))
+  }));
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { id } = await params
-  const project = getProjectById(id)
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { id } = await params;
+  const project = getProjectById(id);
 
   if (!project) {
     return {
       title: "Проект не найден",
-    }
+    };
   }
 
   return {
     title: `${project.title} — Катерина Перегудова`,
     description: project.description,
-  }
+  };
 }
 
 export default async function ProjectPage({ params }: PageProps) {
-  const { id } = await params
-  const project = getProjectById(id)
+  const { id } = await params;
+  const project = getProjectById(id);
 
   if (!project) {
-    notFound()
+    notFound();
   }
 
-  const currentIndex = projects.findIndex((p) => p.id === id)
-  const prevProject = currentIndex > 0 ? projects[currentIndex - 1] : null
-  const nextProject = currentIndex < projects.length - 1 ? projects[currentIndex + 1] : null
+  const currentIndex = projects.findIndex((p) => p.id === id);
+  const prevProject = currentIndex > 0 ? projects[currentIndex - 1] : null;
+  const nextProject =
+    currentIndex < projects.length - 1 ? projects[currentIndex + 1] : null;
+
+  const figmaIframeSrc = project.figmaEmbedUrl
+    ? project.figmaEmbedUrl.includes("/embed?")
+      ? project.figmaEmbedUrl
+      : `https://www.figma.com/embed?embed_host=share&url=${encodeURIComponent(
+          project.figmaEmbedUrl,
+        )}`
+    : "";
 
   return (
     <article className="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
@@ -125,6 +138,12 @@ export default async function ProjectPage({ params }: PageProps) {
             {project.solution}
           </p>
         </section>
+        {project.id === "KRU" && (
+          <BeforeAfterSlider
+            beforeSrc="/projects/before-1.png"
+            afterSrc="/projects/after-1.png"
+          />
+        )}
 
         {/* Процесс */}
         <section>
@@ -157,23 +176,30 @@ export default async function ProjectPage({ params }: PageProps) {
         {/* Gallery */}
         <section>
           <h2 className="mb-6 text-xl font-semibold tracking-tight text-foreground">
-            Галерея проекта
+            {project.id === "ux-framework"
+              ? "Фигма-файл с фреймворком"
+              : "Галерея проекта"}
           </h2>
-          <div className="grid gap-4 sm:grid-cols-1">
-            {project.galleryImages.map((image, index) => (
-              <div
-                key={index}
-                className="relative aspect-[16/9] object-cover overflow-hidden rounded-lg bg-muted"
-              >
-                <Image
-                  src={image || "/placeholder.svg"}
-                  alt={`${project.title} - изображение ${index + 1}`}
-                  fill
-                  className="object-cover"
-                />
+          {project.id === "ux-framework" ? (
+            project.figmaEmbedUrl ? (
+              <FigmaEmbed
+                src={figmaIframeSrc}
+                title={project.title}
+                coverImage={project.image}
+              />
+            ) : (
+              <div className="rounded-xl border border-dashed border-border/60 bg-muted/30 p-6 text-sm text-muted-foreground">
+                Добавь `figmaEmbedUrl` для проекта `ux-framework` в{" "}
+                <code>lib/projects.ts</code>, чтобы здесь отображался
+                интерактивный Figma-файл.
               </div>
-            ))}
-          </div>
+            )
+          ) : (
+            <IncludeImageCarousel
+              images={project.galleryImages}
+              aspectRatio="16/9"
+            />
+          )}
         </section>
 
         {/* Результат */}
@@ -230,5 +256,5 @@ export default async function ProjectPage({ params }: PageProps) {
         </div>
       </nav>
     </article>
-  )
+  );
 }
