@@ -78,7 +78,7 @@ export default function AboutPage() {
           {/* Photo */}
           <div className="relative mx-auto h-64 w-64 shrink-0 overflow-hidden rounded-2xl bg-muted lg:mx-0">
             <Image
-              src="/about/profile.jpg"
+              src="/about/profile.png"
               alt="Катерина Перегудова"
               fill
               className="object-cover"

@@ -13,7 +13,7 @@ export interface Project {
   process: {step: string; detailes: string[] }[]
   result: string
   resultMetrics?: { label: string; value: string }[]
-  galleryImages: string[]
+  galleryImages: string []
 }
 
 export const projects: Project[] = [
@@ -49,8 +49,8 @@ export const projects: Project[] = [
     result: "Запущен первый релиз и собрана обратная связь от пользователей. 100% респондентов корректно понимали назначение сервиса, установка приложений не вызывала затруднений. Выявлены ключевые UX-барьеры навигации и управления. Однако, по итогам продуктового комитета концепция была упрощена до единой точки входа в партнёрские сервисы, развитие маркетплейса отложено.",
     resultMetrics: [
       { label: "Индекс удовлетворенности", value: "97%" },
-      { label: "Объем каталога", value: "22" },
-      { label: "Поставка MVP", value: "за полгода" }
+      { label: "Объем каталога", value: "22 приложения" },
+      { label: "Поставка MVP", value: "6 месяцев" }
     ],
     galleryImages: [
       "/projects/atom-1.jpg",
@@ -148,7 +148,7 @@ export const projects: Project[] = [
     role: "Product designer",
     year: "2025-2026",
     image: "/projects/pixorion-cover.jpg",
-    tags: ["Web platform", "AI Agent", "Content management"],
+    tags: ["Web platform", "AI Agent", "B2B"],
     overview: "Сервис одного окна для продавцов, которая помогает увеличивать видимость и конверсию своих товаров за счет синергии data-driven аналитики и автоматизированной генерации контента",
     problem: "Существующие корпоративные приложения требовали улучшения UX и визуального качества. Процессы проектирования были недостаточно эффективны.",
     solution: "Разработка интерфейсов пользовательских приложений и аналитических систем. Внедрение обновлённых методологий проектирования.",

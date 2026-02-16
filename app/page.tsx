@@ -16,7 +16,7 @@ export default function HomePage() {
           </h1>
           <p className="mb-8 text-lg leading-[1.8rem] text-muted-foreground sm:text-xl">
             Продуктовый дизайнер, 7 лет опыта. 
-            Начинала свою карьеру в Газпромнефти, создавая красивые и удобные аналитические дашборды. После проектировала облачные сервисы, B2B SaaS, Travel Tech и in-car продукты.
+            Начинала свою карьеру в компании Газпромнефть, создавая красивые и удобные аналитические дашборды. После проектировала облачные сервисы, B2B SaaS, Travel Tech и in-car продукты.
           </p>
           <div className="flex flex-col gap-4 sm:flex-row">
             <Button asChild size="lg" className="gap-2">

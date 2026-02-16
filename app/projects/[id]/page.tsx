@@ -159,11 +159,11 @@ export default async function ProjectPage({ params }: PageProps) {
           <h2 className="mb-6 text-xl font-semibold tracking-tight text-foreground">
             Галерея проекта
           </h2>
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid gap-4 sm:grid-cols-1">
             {project.galleryImages.map((image, index) => (
               <div
                 key={index}
-                className="relative aspect-[4/3] overflow-hidden rounded-lg bg-muted"
+                className="relative aspect-[16/9] object-cover overflow-hidden rounded-lg bg-muted"
               >
                 <Image
                   src={image || "/placeholder.svg"}
