@@ -1,6 +1,7 @@
 import { projects } from "@/lib/projects"
 import { ProjectCard } from "@/components/project-card"
 import { RevealOnScroll } from "@/components/RevealOnScroll"
+import { AnimatedHeadline } from "@/components/AnimatedHeadline"
 import { Button } from "@/components/ui/button"
 import { Download, ArrowRight } from "lucide-react"
 import Link from "next/link"
@@ -19,18 +20,28 @@ export default function HomePage() {
 
         <div className="relative z-10 mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <RevealOnScroll delay={260}>
-              <h1 className="leading-[1.2] mb-6 text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-                Сложные интерфейсы, интуитивное взаимодействие
-              </h1>
-            </RevealOnScroll>
-            <RevealOnScroll delay={520}>
-              <p className="mb-8 text-lg leading-[1.8rem] text-muted-foreground sm:text-xl">
-                Продуктовый дизайнер, 7 лет опыта.
-                Начинала свою карьеру в компании Газпромнефть, создавая красивые и удобные аналитические дашборды. После проектировала облачные сервисы, B2B SaaS, Travel Tech и in-car продукты.
+            <RevealOnScroll delay={300}>
+              <p className="mb-4 inline-flex rounded-full border border-border/60 bg-background/60 px-3 py-1 text-xs uppercase tracking-widest text-muted-foreground backdrop-blur">
+                UX Expert & Product manager
               </p>
             </RevealOnScroll>
-            <RevealOnScroll delay={760}>
+            <RevealOnScroll delay={300}>
+              <AnimatedHeadline
+                ariaLabel="Сложные интерфейсы, интуитивное взаимодействие"
+                className="mb-4 text-4xl sm:text-5xl lg:text-6xl"
+                segments={[
+                  { text: "Сложные интерфейсы, " },
+                  { text: "интуитивное взаимодействие", className: "text-primary" },
+                ]}
+              />
+            </RevealOnScroll>
+            <RevealOnScroll delay={1000}>
+              <p className="mb-8 text-lg leading-[1.8rem] text-muted-foreground sm:text-xl">
+                Аналитическое мышление, пытливый ум и 7 лет опыта.
+                Работала в крупных компаниях и стартапах. Проектировала Enterprise-платформы, интерфейсы GIS, in-car и AI систем.
+              </p>
+            </RevealOnScroll>
+            <RevealOnScroll delay={2500}>
               <div className="flex flex-col gap-4 sm:flex-row">
                 <Button asChild size="lg" className="gap-2">
                   <a href="https://disk.yandex.ru/i/ASC9Xzl24TqZUQ" target="_blank">
