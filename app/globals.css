@@ -326,3 +326,15 @@
 .gallery-lightbox .yarl__thumbnails_thumbnail img {
   object-fit: cover;
 }
+
+/* Hide zoom (loupe) buttons in lightbox toolbar while keeping manual zoom gestures */
+.gallery-lightbox .yarl__toolbar button[title*="Zoom"],
+.gallery-lightbox .yarl__toolbar button[aria-label*="Zoom"],
+.gallery-lightbox .yarl__toolbar button[title*="zoom"],
+.gallery-lightbox .yarl__toolbar button[aria-label*="zoom"],
+.gallery-lightbox .yarl__toolbar button[title*="Увелич"],
+.gallery-lightbox .yarl__toolbar button[aria-label*="Увелич"],
+.gallery-lightbox .yarl__toolbar button[title*="Приблиз"],
+.gallery-lightbox .yarl__toolbar button[aria-label*="Приблиз"] {
+  display: none !important;
+}

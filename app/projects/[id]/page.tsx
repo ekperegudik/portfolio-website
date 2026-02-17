@@ -8,6 +8,8 @@ import { IncludeImageCarousel } from "@/components/IncludeImageCarousel";
 import { BeforeAfterSlider } from "@/components/ui/BeforeAfterSlider";
 import { FigmaEmbed } from "@/components/FigmaEmbed";
 import { RevealOnScroll } from "@/components/RevealOnScroll";
+import { ProcessStepImage } from "@/components/ProcessStepImage";
+import { ProcessStepVideo } from "@/components/ProcessStepVideo";
 import type { Metadata } from "next";
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -108,7 +110,7 @@ export default async function ProjectPage({ params }: PageProps) {
             src={project.image || "/placeholder.svg"}
             alt={project.title}
             fill
-            className="object-cover"
+            className="object-contain"
             priority
           />
         </div>
@@ -120,9 +122,9 @@ export default async function ProjectPage({ params }: PageProps) {
         <RevealOnScroll delay={120}>
           <section>
           <h2 className="mb-4 text-xl font-semibold tracking-tight text-foreground">
-            Обзор
+            О продукте
           </h2>
-          <p className="leading-[1.4rem] text-muted-foreground">
+          <p className="whitespace-pre-line leading-[1.4rem] text-muted-foreground">
             {project.overview}
           </p>
           </section>
@@ -146,7 +148,7 @@ export default async function ProjectPage({ params }: PageProps) {
           <h2 className="mb-4 text-xl font-semibold tracking-tight text-foreground">
             Решение
           </h2>
-          <p className="leading-[1.4rem] text-muted-foreground">
+          <p className="whitespace-pre-line leading-[1.4rem] text-muted-foreground">
             {project.solution}
           </p>
           </section>
@@ -168,22 +170,46 @@ export default async function ProjectPage({ params }: PageProps) {
           </h2>
           <ol className="space-y-6">
             {project.process.map((stepObj, index) => (
-              <li key={index} className="flex flex-col gap-2">
-                <span className="flex items-center gap-4">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-medium text-primary-foreground">
-                    {index + 1}
-                  </span>
-                  <span className="leading-[1.4rem] font-regular text-md text-secondary-foreground">
-                    {stepObj.step}
-                  </span>
-                </span>
-                <ul className="pl-12 list-disc space-y-1 text-muted-foreground">
+              <li key={index} className="flex flex-col gap-3">
+                <p className="leading-[1.4rem] font-regular text-md text-secondary-foreground">
+                  {stepObj.step}
+                </p>
+
+                <ul className="list-disc space-y-1 pl-5 text-muted-foreground">
                   {stepObj.detailes.map((item, i) => (
                     <li key={i} className="leading-[1.4rem] text-base">
                       {item}
                     </li>
                   ))}
                 </ul>
+
+                {(stepObj.video || stepObj.showImage !== false) && (
+                  <figure className="overflow-hidden rounded-xl border border-border/50 bg-card/40">
+                    {stepObj.video ? (
+                      <ProcessStepVideo
+                        src={stepObj.video}
+                        aspectRatio={stepObj.videoAspect ?? stepObj.imageAspect ?? "16/8"}
+                        playbackRate={stepObj.videoPlaybackRate ?? 1.35}
+                        frameVariant={stepObj.videoFrameVariant}
+                      />
+                    ) : stepObj.image ? (
+                      <ProcessStepImage
+                        src={stepObj.image}
+                        alt={stepObj.imageDescription ?? `Иллюстрация к этапу: ${stepObj.step}`}
+                        aspectRatio={stepObj.imageAspect ?? "16/8"}
+                      />
+                    ) : (
+                      <div className="relative w-full bg-linear-to-br from-primary/20 via-primary/8 to-transparent"
+                        style={{ aspectRatio: stepObj.imageAspect ?? "16/8" }}>
+                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.2),transparent_45%)]" />
+                      </div>
+                    )}
+
+                    <p className="border-t border-border/50 px-4 py-3 text-sm italic text-muted-foreground">
+                      {stepObj.videoDescription ?? stepObj.imageDescription ?? `Иллюстрация к этапу: ${stepObj.step}`}
+                    </p>
+                  </figure>
+                )}
               </li>
             ))}
           </ol>
@@ -227,7 +253,7 @@ export default async function ProjectPage({ params }: PageProps) {
           <h2 className="mb-4 text-xl font-semibold tracking-tight text-foreground">
             Результат
           </h2>
-          <p className="mb-6 leading-relaxed text-muted-foreground">
+          <p className="whitespace-pre-line mb-6 leading-relaxed text-muted-foreground">
             {project.result}
           </p>
 

@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button"
 import { Download, ArrowRight } from "lucide-react"
 import Link from "next/link"
 
-
 export default function HomePage() {
   return (
     <div>
@@ -65,12 +64,12 @@ export default function HomePage() {
       <section className="mx-auto max-w-6xl px-4 pb-16 pt-20 sm:px-6 sm:pb-24 lg:px-8">
         <div className="mb-10 flex items-center justify-between">
           <div>
-            <RevealOnScroll delay={120}>
+            <RevealOnScroll delay={60}>
               <h2 className="mb-2 text-2xl font-semibold tracking-tight text-foreground">
                 Последние работы
               </h2>
             </RevealOnScroll>
-            <RevealOnScroll delay={220}>
+            <RevealOnScroll delay={110}>
               <p className="text-muted-foreground">
                 От интерфейсов до продуктовых решений
               </p>
@@ -80,7 +79,7 @@ export default function HomePage() {
 
         <div className="grid gap-8 sm:grid-cols-2">
           {projects.map((project, index) => (
-            <RevealOnScroll key={project.id} delay={320 + index * 120}>
+            <RevealOnScroll key={project.id} delay={160 + index * 60}>
               <ProjectCard project={project} />
             </RevealOnScroll>
           ))}
