@@ -16,7 +16,7 @@ export default function HomePage() {
           <div className="hero-aurora-blob-a absolute left-[6%] top-[10%] h-[38vmax] w-[38vmax] rounded-full" />
           <div className="hero-aurora-blob-b absolute bottom-[2%] right-[2%] h-[34vmax] w-[34vmax] rounded-full" />
         </div>
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-44 bg-gradient-to-b from-transparent via-background/60 to-background" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-1 h-44 bg-linear-to-b from-transparent via-background/60 to-background" />
 
         <div className="relative z-10 mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">

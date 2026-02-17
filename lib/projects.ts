@@ -178,9 +178,11 @@ export const projects: Project[] = [
       { label: "Методологии", value: "Внедрены" }
     ],
     galleryImages: [
-      "/projects/gazprom-1.jpg",
-      "/projects/gazprom-2.jpg",
-      "/projects/gazprom-3.jpg"
+      "/projects/pixorion-1.png",
+      "/projects/pixorion-2.png",
+      "/projects/pixorion-3.png",
+      "/projects/pixorion-4.png",
+      "/projects/pixorion-5.png",
     ]
   }
 ]

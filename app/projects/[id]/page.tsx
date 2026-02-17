@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { IncludeImageCarousel } from "@/components/IncludeImageCarousel";
 import { BeforeAfterSlider } from "@/components/ui/BeforeAfterSlider";
 import { FigmaEmbed } from "@/components/FigmaEmbed";
+import { RevealOnScroll } from "@/components/RevealOnScroll";
 import type { Metadata } from "next";
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -60,16 +61,19 @@ export default async function ProjectPage({ params }: PageProps) {
   return (
     <article className="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
       {/* Back Link */}
-      <Link
-        href="/"
-        className="mb-8 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
-      >
-        <ArrowLeft className="h-4 w-4" />
-        Все проекты
-      </Link>
+      <RevealOnScroll delay={120}>
+        <Link
+          href="/"
+          className="mb-8 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+        >
+          <ArrowLeft className="h-4 w-4" />
+          Все проекты
+        </Link>
+      </RevealOnScroll>
 
       {/* Header */}
-      <header className="mb-12">
+      <RevealOnScroll delay={220}>
+        <header className="mb-12">
         <div className="mb-4 flex flex-wrap items-center gap-3">
           <span className="text-sm font-medium uppercase tracking-wider text-primary">
             {project.role}
@@ -94,59 +98,71 @@ export default async function ProjectPage({ params }: PageProps) {
             </span>
           ))}
         </div>
-      </header>
+        </header>
+      </RevealOnScroll>
 
       {/* Cover Image */}
-      <div className="relative mb-16 aspect-[16/9] overflow-hidden rounded-xl bg-muted">
-        <Image
-          src={project.image || "/placeholder.svg"}
-          alt={project.title}
-          fill
-          className="object-cover"
-          priority
-        />
-      </div>
+      <RevealOnScroll delay={320}>
+        <div className="relative mb-16 aspect-video overflow-hidden rounded-xl bg-muted">
+          <Image
+            src={project.image || "/placeholder.svg"}
+            alt={project.title}
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+      </RevealOnScroll>
 
       {/* Content Sections */}
       <div className="space-y-16">
         {/* Обзор */}
-        <section>
+        <RevealOnScroll delay={120}>
+          <section>
           <h2 className="mb-4 text-xl font-semibold tracking-tight text-foreground">
             Обзор
           </h2>
           <p className="leading-[1.4rem] text-muted-foreground">
             {project.overview}
           </p>
-        </section>
+          </section>
+        </RevealOnScroll>
 
         {/* Проблема */}
-        <section>
+        <RevealOnScroll delay={160}>
+          <section>
           <h2 className="mb-4 text-xl font-semibold tracking-tight text-foreground">
             Проблема
           </h2>
           <p className="leading-[1.4rem] text-muted-foreground">
             {project.problem}
           </p>
-        </section>
+          </section>
+        </RevealOnScroll>
 
         {/* Решение */}
-        <section>
+        <RevealOnScroll delay={200}>
+          <section>
           <h2 className="mb-4 text-xl font-semibold tracking-tight text-foreground">
             Решение
           </h2>
           <p className="leading-[1.4rem] text-muted-foreground">
             {project.solution}
           </p>
-        </section>
+          </section>
+        </RevealOnScroll>
         {project.id === "KRU" && (
-          <BeforeAfterSlider
-            beforeSrc="/projects/before-1.png"
-            afterSrc="/projects/after-1.png"
-          />
+          <RevealOnScroll delay={240}>
+            <BeforeAfterSlider
+              beforeSrc="/projects/before-1.png"
+              afterSrc="/projects/after-1.png"
+            />
+          </RevealOnScroll>
         )}
 
         {/* Процесс */}
-        <section>
+        <RevealOnScroll delay={120}>
+          <section>
           <h2 className="mb-6 text-xl font-semibold tracking-tight text-foreground">
             Процесс
           </h2>
@@ -171,10 +187,12 @@ export default async function ProjectPage({ params }: PageProps) {
               </li>
             ))}
           </ol>
-        </section>
+          </section>
+        </RevealOnScroll>
 
         {/* Gallery */}
-        <section>
+        <RevealOnScroll delay={160}>
+          <section>
           <h2 className="mb-6 text-xl font-semibold tracking-tight text-foreground">
             {project.id === "ux-framework"
               ? "Фигма-файл с фреймворком"
@@ -200,10 +218,12 @@ export default async function ProjectPage({ params }: PageProps) {
               aspectRatio="16/9"
             />
           )}
-        </section>
+          </section>
+        </RevealOnScroll>
 
         {/* Результат */}
-        <section>
+        <RevealOnScroll delay={200}>
+          <section>
           <h2 className="mb-4 text-xl font-semibold tracking-tight text-foreground">
             Результат
           </h2>
@@ -228,11 +248,13 @@ export default async function ProjectPage({ params }: PageProps) {
               ))}
             </div>
           )}
-        </section>
+          </section>
+        </RevealOnScroll>
       </div>
 
       {/* Navigation */}
-      <nav className="mt-20 border-t border-border/40 pt-10">
+      <RevealOnScroll delay={120}>
+        <nav className="mt-20 border-t border-border/40 pt-10">
         <div className="flex flex-col justify-between gap-4 sm:flex-row">
           {prevProject ? (
             <Button asChild variant="outline" className="gap-2 bg-transparent">
@@ -254,7 +276,8 @@ export default async function ProjectPage({ params }: PageProps) {
             </Button>
           )}
         </div>
-      </nav>
+        </nav>
+      </RevealOnScroll>
     </article>
   );
 }

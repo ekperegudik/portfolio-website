@@ -5,6 +5,7 @@ import { useState } from "react"
 
 import Lightbox from "yet-another-react-lightbox"
 import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails"
+import Zoom from "yet-another-react-lightbox/plugins/zoom"
 
 import "yet-another-react-lightbox/styles.css"
 import "yet-another-react-lightbox/plugins/thumbnails.css"
@@ -12,23 +13,19 @@ import "yet-another-react-lightbox/plugins/thumbnails.css"
 const galleryItems = [
     {
         src: "/gallery/work-1.jpg",
-        alt: "Дизайн мобильного приложения",
-        category: "Mobile",
+        alt: "Цифровой дашборд ПАО Газпромнефть",
     },
     {
         src: "/gallery/work-2.jpg",
-        alt: "Дизайн мобильного приложения",
-        category: "Mobile",
+        alt: "Цифровой дашборд ПАО Газпромнефть",
     },
     {
         src: "/gallery/work-3.jpg",
-        alt: "Дизайн мобильного приложения",
-        category: "Mobile",
+        alt: "Paclet system",
     },
     {
         src: "/gallery/work-9.png",
-        alt: "Каталог товаров",
-        category: "Pixorion.ai",
+        alt: "AI ассиcтент для продавцов WB, OZON",
     },
 
 ]
@@ -48,7 +45,7 @@ export default function GalleryClient() {
                     Галерея
                 </h1>
                 <p className="max-w-2xl text-lg text-muted-foreground">
-                    Подборка работ из разных проектов: интерфейсы, компоненты, прототипы и концепции.
+                    Подборка работ из разных проектов
                 </p>
             </header>
 
@@ -56,9 +53,8 @@ export default function GalleryClient() {
                 {galleryItems.map((item, index) => (
                     <div
                         key={item.src}
-                        className="group relative aspect-[16/9] overflow-hidden rounded-lg bg-muted cursor-zoom-in"
+                        className="group relative aspect-video overflow-hidden rounded-lg bg-muted cursor-pointer"
                         onClick={() => {
-                            console.log("clicked", index)
                             setOpenIndex(index)
                         }}
                     >
@@ -69,13 +65,10 @@ export default function GalleryClient() {
                             className="object-cover object-top transition-transform duration-300 group-hover:scale-105"
                         />
 
-                        <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                        <div className="absolute inset-0 bg-linear-to-t from-background/95 via-background/45 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
                         <div className="absolute bottom-0 left-0 right-0 p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                            <span className="text-xs font-medium uppercase tracking-wider text-primary">
-                                {item.category}
-                            </span>
-                            <p className="mt-1 text-sm">
+                            <p className="mt-2 text-sm text-foreground">
                                 {item.alt}
                             </p>
                         </div>
@@ -88,7 +81,28 @@ export default function GalleryClient() {
                 slides={slides}
                 index={openIndex ?? 0}
                 close={() => setOpenIndex(null)}
-                plugins={[Thumbnails]}
+                plugins={[Thumbnails, Zoom]}
+                className="gallery-lightbox"
+                thumbnails={{
+                    position: "bottom",
+                    width: 84,
+                    height: 56,
+                    gap: 10,
+                    padding: 12,
+                    border: 0,
+                    vignette: false,
+                }}
+                zoom={{
+                    maxZoomPixelRatio: 2.5,
+                    zoomInMultiplier: 1.5,
+                    doubleTapDelay: 300,
+                    doubleClickDelay: 300,
+                    doubleClickMaxStops: 2,
+                    keyboardMoveDistance: 50,
+                    wheelZoomDistanceFactor: 100,
+                    pinchZoomDistanceFactor: 100,
+                    scrollToZoom: true,
+                }}
             />
         </div>
     )

@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import GalleryClient from "@/components/GalleryClient"
+import { RevealOnScroll } from "@/components/RevealOnScroll"
 
 export const metadata: Metadata = {
   title: "Галерея — Катерина Перегудова",
@@ -7,5 +8,9 @@ export const metadata: Metadata = {
 }
 
 export default function Page() {
-  return <GalleryClient />
+  return (
+    <RevealOnScroll delay={120}>
+      <GalleryClient />
+    </RevealOnScroll>
+  )
 }

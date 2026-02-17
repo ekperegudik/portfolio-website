@@ -7,17 +7,19 @@ import {
   CarouselItem,
   CarouselPrevious,
   CarouselNext,
-} from "@/components/ui/carousel"; // путь к твоему компоненту
+} from "@/components/ui/carousel";
 
 interface IncludeImageCarouselProps {
-  images: string[]; // массив путей к изображениям
-  aspectRatio: '16/9';
+  images: string[];
+  aspectRatio?: string;
 }
 
 export function IncludeImageCarousel({
   images,
   aspectRatio = "16/9",
 }: IncludeImageCarouselProps) {
+  if (!images?.length) return null;
+
   return (
     <div className="relative my-8">
       <Carousel opts={{ loop: true }}>
@@ -25,7 +27,10 @@ export function IncludeImageCarousel({
         <CarouselContent className="gap-4">
           {images.map((src, index) => (
             <CarouselItem key={index}>
-              <div className={`relative w-full aspect-[${aspectRatio}] overflow-hidden rounded-lg`}>
+              <div
+                className="relative w-full overflow-hidden rounded-lg"
+                style={{ aspectRatio }}
+              >
                 <Image
                   src={src}
                   alt={`Изображение ${index + 1}`}

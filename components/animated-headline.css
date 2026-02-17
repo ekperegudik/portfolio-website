@@ -31,36 +31,7 @@
 }
 
 .headline-wrap {
-  position: relative;
   display: inline-block;
-}
-
-.headline-segment {
-  position: relative;
-  display: inline-block;
-}
-
-.headline-strike {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  height: 0.12em;
-  background: var(--primary);
-  opacity: 0.9;
-  transform: scaleX(0);
-  transform-origin: left;
-  z-index: 3;
-  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.35));
-  animation: headline-strike 520ms ease-out forwards;
-  pointer-events: none;
-}
-
-@keyframes headline-strike {
-  to {
-    opacity: 0.55;
-    transform: scaleX(1);
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -69,11 +40,5 @@
     transform: none;
     filter: none;
     animation: none;
-  }
-
-  .headline-strike {
-    animation: none;
-    opacity: 0.45;
-    transform: scaleX(1);
   }
 }

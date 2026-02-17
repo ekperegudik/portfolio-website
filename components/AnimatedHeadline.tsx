@@ -16,12 +16,6 @@ interface AnimatedHeadlineProps {
   ariaLabel: string;
   baseDelayMs?: number;
   stepMs?: number;
-  strike?: {
-    fromSegmentIndex: number;
-    toSegmentIndex: number;
-    delayMs?: number;
-    durationMs?: number;
-  };
 }
 
 export function AnimatedHeadline({
@@ -30,7 +24,6 @@ export function AnimatedHeadline({
   ariaLabel,
   baseDelayMs = 0,
   stepMs = 28,
-  strike,
 }: AnimatedHeadlineProps) {
   const ref = useRef<HTMLHeadingElement | null>(null);
   const [visible, setVisible] = useState(false);
@@ -58,32 +51,16 @@ export function AnimatedHeadline({
     return () => observer.disconnect();
   }, []);
 
-  const { letters, ranges, totalLetters } = useMemo(() => {
+  const letters = useMemo(() => {
     let index = 0;
-    const rangesLocal: Array<{ start: number; end: number }> = [];
     const lettersLocal = segments.map((segment, segmentIndex) => {
       const words = segment.text.split(" ");
       const segmentOffset = segment.delayOffsetMs ?? 0;
-      const start = index;
-      const shouldStrikeSegment =
-        strike &&
-        strike.fromSegmentIndex === segmentIndex &&
-        strike.toSegmentIndex === segmentIndex;
       const node = (
         <span
           key={`seg-${segmentIndex}`}
-          className={cn("headline-segment", segment.className)}
+          className={segment.className}
         >
-          {shouldStrikeSegment && (
-            <span
-              className="headline-strike"
-              style={{
-                animationDelay: `${strike.delayMs ?? baseDelayMs + start * stepMs + 220}ms`,
-                animationDuration: `${strike.durationMs ?? 520}ms`,
-              }}
-              aria-hidden
-            />
-          )}
           {words.map((word, wordIndex) => (
             <span key={`word-${segmentIndex}-${wordIndex}`} className="headline-word">
               {Array.from(word).map((char) => {
@@ -110,10 +87,9 @@ export function AnimatedHeadline({
           ))}
         </span>
       );
-      rangesLocal.push({ start, end: index });
       return node;
     });
-    return { letters: lettersLocal, ranges: rangesLocal, totalLetters: index };
+    return lettersLocal;
   }, [segments, baseDelayMs, stepMs]);
 
   return (

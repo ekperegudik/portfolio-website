@@ -49,7 +49,7 @@ export function FigmaEmbed({ src, title, coverImage }: FigmaEmbedProps) {
       <iframe
         title={`${title} Figma`}
         src={src}
-        className="h-[560px] w-full"
+        className="h-140 w-full"
         allowFullScreen
         onLoad={handleLoad}
       />
