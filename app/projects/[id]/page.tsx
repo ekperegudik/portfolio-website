@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import Image from "next/image";
+import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { projects, getProjectById } from "@/lib/projects";
@@ -106,11 +106,12 @@ export default async function ProjectPage({ params }: PageProps) {
       {/* Cover Image */}
       <RevealOnScroll delay={320}>
         <div className="relative mb-16 aspect-video overflow-hidden rounded-xl bg-muted">
-          <Image
+          <ImageWithSkeleton
             src={project.image || "/placeholder.svg"}
             alt={project.title}
             fill
             className={project.id === "pixorion-ai" ? "object-cover" : "object-contain"}
+            skeletonClassName="bg-white/10"
             priority
           />
         </div>
@@ -155,10 +156,15 @@ export default async function ProjectPage({ params }: PageProps) {
         </RevealOnScroll>
         {project.id === "KRU" && (
           <RevealOnScroll delay={240}>
-            <BeforeAfterSlider
-              beforeSrc="/projects/before-1.png"
-              afterSrc="/projects/after-1.png"
-            />
+            <figure className="overflow-hidden rounded-xl border border-white/0 bg-white/2 backdrop-blur-md shadow-[inset_0_1px_0_rgba(255,255,255,0.14),0_10px_30px_rgba(0,0,0,0.10)]">
+              <BeforeAfterSlider
+                beforeSrc="/projects/before-1.png"
+                afterSrc="/projects/after-1.png"
+              />
+              <p className="border-t border-white/10 px-4 py-3 text-sm italic text-muted-foreground">
+                Слева интерфейс до редизайна, справа — после
+              </p>
+            </figure>
           </RevealOnScroll>
         )}
 
@@ -247,11 +253,7 @@ export default async function ProjectPage({ params }: PageProps) {
                   ? "object-cover object-top"
                   : "object-cover object-top"
               }
-              lightboxClassName={
-                project.id === "pixorion-ai"
-                  ? "gallery-lightbox gallery-lightbox--topcrop"
-                  : "gallery-lightbox"
-              }
+              lightboxClassName="gallery-lightbox"
             />
           )}
           </section>

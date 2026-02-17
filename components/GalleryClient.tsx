@@ -1,6 +1,6 @@
 "use client"
 
-import Image from "next/image"
+import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton"
 import { useState } from "react"
 
 import Lightbox from "yet-another-react-lightbox"
@@ -55,11 +55,12 @@ export default function GalleryClient() {
               setOpenIndex(index)
             }}
           >
-            <Image
+            <ImageWithSkeleton
               src={item.src}
               alt={item.alt}
               fill
               className="object-cover object-top transition-transform duration-300 group-hover:scale-105"
+              skeletonClassName="bg-white/10"
             />
 
             <div className="absolute inset-0 bg-linear-to-t from-background/95 via-background/45 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />

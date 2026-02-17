@@ -1,5 +1,5 @@
 import Link from "next/link"
-import Image from "next/image"
+import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton"
 import type { Project } from "@/lib/projects"
 
 interface ProjectCardProps {
@@ -11,11 +11,12 @@ export function ProjectCard({ project }: ProjectCardProps) {
     <Link href={`/projects/${project.id}`} className="group block">
       <article className="overflow-hidden rounded-lg border border-white/1 bg-white/2 backdrop-blur-md shadow-[inset_0_1px_0_rgba(255,255,255,0.14),0_10px_30px_rgba(0,0,0,0.10)] transition-all duration-300 hover:border-white/12 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.22),0_0_0_1px_rgba(255,255,255,0.08),0_14px_36px_rgba(0,0,0,0.16),0_0_28px_rgba(196,221,255,0.10)]">
         <div className="relative aspect-[16/10] overflow-hidden bg-background/10">
-          <Image
+          <ImageWithSkeleton
             src={project.image || "/placeholder.svg"}
             alt={project.title}
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-105"
+            skeletonClassName="bg-white/10"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
         </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
 import { Expand } from "lucide-react";
 import { useEffect, useState } from "react";
 import type { CarouselApi } from "@/components/ui/carousel";
@@ -63,11 +63,12 @@ export function IncludeImageCarousel({
                 onClick={() => setOpenIndex(index)}
                 aria-label={`Открыть изображение ${index + 1} на весь экран`}
               >
-                <Image
+                <ImageWithSkeleton
                   src={src}
                   alt={`Изображение ${index + 1}`}
                   fill
                   className={imageClassName}
+                  skeletonClassName="bg-white/10"
                 />
 
                 <span className="absolute right-3 top-3 inline-flex h-7 w-7 items-center justify-center rounded-full border border-border/70 bg-background/70 text-foreground/80 backdrop-blur-sm transition-all duration-300 group-hover:scale-105 group-hover:bg-background/85 group-hover:text-foreground">

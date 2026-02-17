@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
+import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
 import { Expand } from "lucide-react";
 import Lightbox from "yet-another-react-lightbox";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
@@ -30,11 +30,12 @@ export function ProcessStepImage({
         style={{ aspectRatio }}
         aria-label="Открыть изображение этапа на весь экран"
       >
-        <Image
+        <ImageWithSkeleton
           src={src}
           alt={alt}
           fill
           className="object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+          skeletonClassName="bg-white/10"
         />
 
         <div className="absolute inset-0 bg-linear-to-t from-background/35 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />

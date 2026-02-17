@@ -1,4 +1,4 @@
-import Link from "next/link"
+import Link from "next/link";
 
 export function Footer() {
   return (
@@ -10,7 +10,7 @@ export function Footer() {
               Катерина Перегудова
             </span>
             <span className="text-sm text-muted-foreground">
-              Продуктовый дизайнер
+              Продуктовый дизайнер, которого вы заслужили
             </span>
           </div>
 
@@ -34,23 +34,14 @@ export function Footer() {
               Галерея
             </Link>
           </nav>
-
-          <div className="flex items-center gap-4">
-            <a
-              href="mailto:Katuush@mail.ru"
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-            >
-              Katuush@mail.ru
-            </a>
-          </div>
         </div>
 
         <div className="mt-8 border-t border-border/40 pt-8 text-center">
           <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} Катерина Перегудова. Все права защищены.
+            © {new Date().getFullYear()} Design & code by me. All rights reserved.
           </p>
         </div>
       </div>
     </footer>
-  )
+  );
 }

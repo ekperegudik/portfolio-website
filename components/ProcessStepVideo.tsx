@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Image from "next/image";
+import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
 
 type ProcessStepVideoProps = {
   src: string;
@@ -38,11 +38,12 @@ export function ProcessStepVideo({
   if (frameVariant === "wheel") {
     return (
       <div className="relative w-full overflow-hidden bg-black" style={{ aspectRatio: "1690 / 780" }}>
-        <Image
+        <ImageWithSkeleton
           src="/projects/wheel.svg"
           alt="Руль автомобиля"
           fill
           className="object-contain"
+          skeletonClassName="bg-white/10"
           priority={false}
         />
 
