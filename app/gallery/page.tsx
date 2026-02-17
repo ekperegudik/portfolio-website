@@ -4,7 +4,7 @@ import { RevealOnScroll } from "@/components/RevealOnScroll"
 
 export const metadata: Metadata = {
   title: "Галерея — Катерина Перегудова",
-  description: "Галерея дизайн-работ: интерфейсы, компоненты, иллюстрации.",
+  description: "Коллекция разработанных интерфейсов и UI-компонентов.",
 }
 
 export default function Page() {

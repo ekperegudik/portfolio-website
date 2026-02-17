@@ -178,104 +178,6 @@
   }
 }
 
-
-.hero-aurora {
-  position: relative;
-  background:
-    radial-gradient(55% 60% at 80% 18%, rgba(118, 160, 255, 0.15), transparent 74%),
-    radial-gradient(50% 58% at 16% 84%, rgba(90, 170, 255, 0.11), transparent 74%),
-    linear-gradient(180deg, rgba(17, 22, 32, 0.62), rgba(12, 16, 24, 0.12));
-}
-
-.hero-aurora::before {
-  content: "";
-  position: absolute;
-  inset: -22%;
-  pointer-events: none;
-  z-index: 0;
-  background: radial-gradient(
-    34% 34% at 30% 32%,
-    rgba(162, 202, 255, 0.23),
-    rgba(129, 180, 255, 0.12) 42%,
-    transparent 74%
-  );
-  mix-blend-mode: screen;
-  filter: blur(6px);
-  opacity: 0.72;
-  will-change: transform, opacity;
-  animation: hero-spotlight-drift 30s ease-in-out infinite alternate;
-}
-
-.hero-aurora-blob-a {
-  background: radial-gradient(circle, rgba(105, 163, 255, 0.34), transparent 72%);
-  filter: blur(64px);
-  opacity: 0.24;
-  animation: hero-aurora-drift-a 80s ease-in-out infinite alternate;
-}
-
-.hero-aurora-blob-b {
-  background: radial-gradient(circle, rgba(136, 184, 255, 0.28), transparent 72%);
-  filter: blur(60px);
-  opacity: 0.2;
-  animation: hero-aurora-drift-b 40s ease-in-out infinite alternate;
-}
-
-.hero-aurora::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: radial-gradient(
-    ellipse at center,
-    transparent 40%,
-    rgba(7, 10, 16, 0.22) 78%,
-    rgba(7, 10, 16, 0.34) 100%
-  );
-  opacity: 0.5;
-  z-index: 0;
-}
-
-
-@keyframes hero-spotlight-drift {
-  0% {
-    transform: translate3d(-8%, -6%, 0) scale(1);
-    opacity: 0.64;
-  }
-  100% {
-    transform: translate3d(22%, 12%, 0) scale(1.14);
-    opacity: 0.76;
-  }
-}
-
-@keyframes hero-aurora-drift-a {
-  0% {
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-  100% {
-    transform: translate3d(28px, -22px, 0) scale(1.08);
-  }
-}
-
-@keyframes hero-aurora-drift-b {
-  0% {
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-  100% {
-    transform: translate3d(-30px, 20px, 0) scale(1.1);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-aurora::before {
-    animation: none;
-  }
-
-  .hero-aurora-blob-a,
-  .hero-aurora-blob-b {
-    animation: none;
-  }
-}
-
 .gallery-lightbox .yarl__container {
   background: rgba(6, 8, 12, 0.92);
 }
@@ -337,4 +239,12 @@
 .gallery-lightbox .yarl__toolbar button[title*="Приблиз"],
 .gallery-lightbox .yarl__toolbar button[aria-label*="Приблиз"] {
   display: none !important;
+}
+
+.gallery-lightbox--topcrop .yarl__slide_image,
+.gallery-lightbox--topcrop .yarl__slide_image_cover {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: top center !important;
 }

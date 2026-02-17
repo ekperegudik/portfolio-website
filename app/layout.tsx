@@ -5,6 +5,7 @@ import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
+import { GlobalLiquidEther } from '@/components/GlobalLiquidEther'
 
 const inter = Inter({ subsets: ["latin", "cyrillic"] });
 
@@ -39,11 +40,14 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <body className={`font-sans antialiased bg-background text-foreground`}>
-        <Header />
-        <main className="min-h-screen">
-          {children}
-        </main>
-        <Footer />
+        <GlobalLiquidEther />
+        <div className="relative z-10">
+          <Header />
+          <main className="min-h-screen">
+            {children}
+          </main>
+          <Footer />
+        </div>
         <Analytics />
       </body>
     </html>

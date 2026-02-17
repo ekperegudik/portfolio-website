@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { Expand } from "lucide-react";
 import Lightbox from "yet-another-react-lightbox";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 
@@ -37,6 +38,10 @@ export function ProcessStepImage({
         />
 
         <div className="absolute inset-0 bg-linear-to-t from-background/35 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+
+        <span className="absolute right-3 top-3 inline-flex h-7 w-7 items-center justify-center rounded-full border border-border/70 bg-background/70 text-foreground/80 backdrop-blur-sm transition-all duration-300 group-hover:scale-105 group-hover:bg-background/85 group-hover:text-foreground">
+          <Expand className="h-3.5 w-3.5" />
+        </span>
       </button>
 
       <Lightbox
@@ -46,6 +51,10 @@ export function ProcessStepImage({
         plugins={[Zoom]}
         className="gallery-lightbox"
         toolbar={{ buttons: ["close"] }}
+        render={{
+          buttonPrev: () => null,
+          buttonNext: () => null,
+        }}
         zoom={{
           maxZoomPixelRatio: 3,
           zoomInMultiplier: 1.5,

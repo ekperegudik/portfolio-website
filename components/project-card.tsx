@@ -9,8 +9,8 @@ interface ProjectCardProps {
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <Link href={`/projects/${project.id}`} className="group block">
-      <article className="overflow-hidden rounded-lg border border-border/40 bg-card transition-all duration-300 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5">
-        <div className="relative aspect-[16/10] overflow-hidden bg-muted">
+      <article className="overflow-hidden rounded-lg border border-white/1 bg-white/2 backdrop-blur-md shadow-[inset_0_1px_0_rgba(255,255,255,0.14),0_10px_30px_rgba(0,0,0,0.10)] transition-all duration-300 hover:border-white/12 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.22),0_0_0_1px_rgba(255,255,255,0.08),0_14px_36px_rgba(0,0,0,0.16),0_0_28px_rgba(196,221,255,0.10)]">
+        <div className="relative aspect-[16/10] overflow-hidden bg-background/10">
           <Image
             src={project.image || "/placeholder.svg"}
             alt={project.title}
@@ -40,7 +40,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             {project.tags.slice(0, 3).map((tag) => (
               <span
                 key={tag}
-                className="rounded-full bg-secondary px-3 py-1 text-xs font-medium text-secondary-foreground"
+                className="rounded-full border border-white/0 bg-white/6 px-3 py-1 text-xs font-medium text-secondary-foreground"
               >
                 {tag}
               </span>

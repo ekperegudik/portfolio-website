@@ -10,18 +10,12 @@ export default function HomePage() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="hero-aurora relative isolate flex min-h-[calc(100svh-4rem)] items-center overflow-hidden py-16 sm:py-20">
-        <div className="pointer-events-none absolute inset-0 z-0">
-          <div className="hero-aurora-blob-a absolute left-[6%] top-[10%] h-[38vmax] w-[38vmax] rounded-full" />
-          <div className="hero-aurora-blob-b absolute bottom-[2%] right-[2%] h-[34vmax] w-[34vmax] rounded-full" />
-        </div>
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-1 h-44 bg-linear-to-b from-transparent via-background/60 to-background" />
-
+      <section className="relative flex min-h-[calc(100svh-4rem)] items-center py-16 sm:py-20">
         <div className="relative z-10 mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <RevealOnScroll delay={300}>
               <p className="mb-4 inline-flex rounded-full border border-border/60 bg-background/60 px-3 py-1 text-xs uppercase tracking-widest text-muted-foreground backdrop-blur">
-                UX Expert & Product manager
+                UX Designer & Product manager
               </p>
             </RevealOnScroll>
             <RevealOnScroll delay={300}>
@@ -37,7 +31,7 @@ export default function HomePage() {
             <RevealOnScroll delay={1000}>
               <p className="mb-8 text-lg leading-[1.8rem] text-muted-foreground sm:text-xl">
                 Аналитическое мышление, пытливый ум и 7 лет опыта.
-                Работала в крупных компаниях и стартапах. Проектировала Enterprise-платформы, интерфейсы GIS, in-car и AI систем.
+                Работала в крупных компаниях и молодых стартапах. Проектировала Enterprise-платформы, интерфейсы GIS, in-car и AI-систем.
               </p>
             </RevealOnScroll>
             <RevealOnScroll delay={2500}>
@@ -66,12 +60,12 @@ export default function HomePage() {
           <div>
             <RevealOnScroll delay={60}>
               <h2 className="mb-2 text-2xl font-semibold tracking-tight text-foreground">
-                Последние работы
+                Мои работы
               </h2>
             </RevealOnScroll>
             <RevealOnScroll delay={110}>
               <p className="text-muted-foreground">
-                От интерфейсов до продуктовых решений
+                Детальное описание продуктовых кейсов
               </p>
             </RevealOnScroll>
           </div>

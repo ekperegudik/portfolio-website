@@ -94,7 +94,7 @@ export default async function ProjectPage({ params }: PageProps) {
           {project.tags.map((tag) => (
             <span
               key={tag}
-              className="rounded-full bg-secondary px-3 py-1 text-sm font-medium text-secondary-foreground"
+              className="rounded-full border border-white/0 bg-white/6 px-3 py-1 text-sm font-medium text-secondary-foreground"
             >
               {tag}
             </span>
@@ -110,7 +110,7 @@ export default async function ProjectPage({ params }: PageProps) {
             src={project.image || "/placeholder.svg"}
             alt={project.title}
             fill
-            className="object-contain"
+            className={project.id === "pixorion-ai" ? "object-cover" : "object-contain"}
             priority
           />
         </div>
@@ -184,7 +184,7 @@ export default async function ProjectPage({ params }: PageProps) {
                 </ul>
 
                 {(stepObj.video || stepObj.showImage !== false) && (
-                  <figure className="overflow-hidden rounded-xl border border-border/50 bg-card/40">
+                  <figure className="overflow-hidden rounded-xl border border-white/0 bg-white/2 backdrop-blur-md shadow-[inset_0_1px_0_rgba(255,255,255,0.14),0_10px_30px_rgba(0,0,0,0.10)]">
                     {stepObj.video ? (
                       <ProcessStepVideo
                         src={stepObj.video}
@@ -205,7 +205,7 @@ export default async function ProjectPage({ params }: PageProps) {
                       </div>
                     )}
 
-                    <p className="border-t border-border/50 px-4 py-3 text-sm italic text-muted-foreground">
+                    <p className="border-t border-white/10 px-4 py-3 text-sm italic text-muted-foreground">
                       {stepObj.videoDescription ?? stepObj.imageDescription ?? `Иллюстрация к этапу: ${stepObj.step}`}
                     </p>
                   </figure>
@@ -232,7 +232,7 @@ export default async function ProjectPage({ params }: PageProps) {
                 coverImage={project.image}
               />
             ) : (
-              <div className="rounded-xl border border-dashed border-border/60 bg-muted/30 p-6 text-sm text-muted-foreground">
+              <div className="rounded-xl border border-white/0 bg-white/2 p-6 text-sm text-muted-foreground backdrop-blur-md shadow-[inset_0_1px_0_rgba(255,255,255,0.14),0_10px_30px_rgba(0,0,0,0.10)]">
                 Добавь `figmaEmbedUrl` для проекта `ux-framework` в{" "}
                 <code>lib/projects.ts</code>, чтобы здесь отображался
                 интерактивный Figma-файл.
@@ -242,6 +242,16 @@ export default async function ProjectPage({ params }: PageProps) {
             <IncludeImageCarousel
               images={project.galleryImages}
               aspectRatio="16/9"
+              imageClassName={
+                project.id === "pixorion-ai"
+                  ? "object-cover object-top"
+                  : "object-cover object-top"
+              }
+              lightboxClassName={
+                project.id === "pixorion-ai"
+                  ? "gallery-lightbox gallery-lightbox--topcrop"
+                  : "gallery-lightbox"
+              }
             />
           )}
           </section>
@@ -262,7 +272,7 @@ export default async function ProjectPage({ params }: PageProps) {
               {project.resultMetrics.map((metric) => (
                 <div
                   key={metric.label}
-                  className="rounded-lg border border-border/40 bg-card p-6 text-center"
+                  className="rounded-lg border border-white/0 bg-white/2 p-6 text-center backdrop-blur-md shadow-[inset_0_1px_0_rgba(255,255,255,0.14),0_10px_30px_rgba(0,0,0,0.10)]"
                 >
                   <div className="mb-1 text-2xl font-bold text-primary">
                     {metric.value}

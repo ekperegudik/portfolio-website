@@ -67,150 +67,147 @@ const approach = [
 
 export default function AboutPage() {
   return (
-    <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
-      {/* Hero Section */}
-      <section className="mb-20">
-        <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:gap-16">
-          {/* Photo */}
-          <RevealOnScroll delay={120}>
-            <div className="relative mx-auto h-64 w-64 shrink-0 overflow-hidden rounded-2xl bg-muted lg:mx-0">
-              <Image
-                src="/about/profile.png"
-                alt="Катерина Перегудова"
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
-          </RevealOnScroll>
-
-          {/* Bio */}
-          <RevealOnScroll delay={240} className="flex-1">
-            <h1 className="mb-6 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-              Приветствую!
-            </h1>
-            <p className="mb-4 leading-[1.4rem] text-muted-foreground">
-              Я дизайнер UX, UI, продуктов, высоконагруженных интерфейсов, а также ящичка со специями на своей кухне. Структурирую и упорядочиваю всё, до чего могу дотянуться.
-            </p>
-            <p className="mb-8 leading-[1.4rem] text-muted-foreground">
-              За 7 лет профессионального опыта "дотянулась" до нефтегазовой и угольной промышленностей, GIS-систем и travel-tech, проектировала дашборды для ТОП-менеджеров Газпромнефти и интерфейсы для электромобиля АТОМ. Люблю сложные задачи и нетривиальные решения.
-            </p>
-            <div className="flex flex-col gap-3 sm:flex-row">
-              <Button asChild variant="outline" className="gap-2 bg-transparent">
-                <a href="mailto:Katuush@mail.ru">
-                  <Mail className="h-4 w-4" />
-                  Написать мне
-                </a>
-              </Button>
-            </div>
-          </RevealOnScroll>
-        </div>
-      </section>
-
-      {/* Approach */}
-      <section className="mb-20">
-        <RevealOnScroll delay={120}>
-          <h2 className="mb-8 text-2xl font-semibold tracking-tight text-foreground">
-            Мой подход
-          </h2>
-        </RevealOnScroll>
-        <div className="grid gap-6 sm:grid-cols-3">
-          {approach.map((item, index) => (
-            <RevealOnScroll key={item.title} delay={220 + index * 120}>
-              <div className="rounded-xl border border-border/40 bg-card p-6">
-                <h3 className="mb-2 font-semibold text-foreground">{item.title}</h3>
-                <p className="text-sm leading-[1.4rem] text-muted-foreground">{item.description}</p>
+    <div>
+      <section className="relative py-16 sm:py-20">
+        <div className="mx-auto w-full max-w-4xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col gap-12 lg:flex-row lg:items-center lg:gap-16">
+            <RevealOnScroll delay={120}>
+              <div className="relative mx-auto w-[min(78vw,360px)] shrink-0 overflow-hidden rounded-2xl aspect-[3/4] lg:mx-0 lg:w-[340px]">
+                <Image
+                  src="/about/profile1.png"
+                  alt="Катерина Перегудова"
+                  fill
+                  className="object-cover object-center"
+                  sizes="(min-width: 1024px) 340px, 78vw"
+                  priority
+                />
               </div>
             </RevealOnScroll>
-          ))}
-        </div>
-      </section>
 
-      {/* Experience */}
-      <section className="mb-20">
-        <RevealOnScroll delay={120}>
-          <h2 className="mb-8 text-2xl font-semibold tracking-tight text-foreground">
-            Опыт работы
-          </h2>
-        </RevealOnScroll>
-        <div className="space-y-12">
-          {experience.map((job, index) => (
-            <RevealOnScroll key={`${job.company}-${job.role}`} delay={220 + index * 140}>
-              <div className="border-l-2 border-border pl-6">
-                <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:gap-3">
-                  <h3 className="font-semibold text-foreground">{job.role}</h3>
-                  <span className="hidden text-muted-foreground sm:inline">•</span>
-                  <span className="text-primary">{job.company}</span>
-                </div>
-                <p className="mb-4 mt-2 text-sm text-muted-foreground">{job.period}</p>
-                <p className="text-muted-foreground">{job.description}</p>
+            <RevealOnScroll delay={240} className="flex-1">
+              <h1 className="mb-6 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+                Приветствую!
+              </h1>
+              <p className="mb-4 leading-[1.4rem] text-muted-foreground">
+                Я дизайнер UX, UI, продуктов, высоконагруженных интерфейсов, а также ящичка со специями на своей кухне. Структурирую и упорядочиваю всё, до чего могу дотянуться.
+              </p>
+              <p className="mb-8 leading-[1.4rem] text-muted-foreground">
+                За 7 лет профессионального опыта "дотянулась" до нефтегазовой и угольной промышленностей, GIS-систем и travel-tech, проектировала дашборды для ТОП-менеджеров Газпромнефти и интерфейсы для электромобиля АТОМ. Люблю сложные задачи и нетривиальные решения.
+              </p>
+              <div className="flex flex-col gap-3 sm:flex-row">
+                <Button asChild variant="outline" className="gap-2 bg-transparent">
+                  <a href="mailto:Katuush@mail.ru">
+                    <Mail className="h-4 w-4" />
+                    Написать мне
+                  </a>
+                </Button>
               </div>
             </RevealOnScroll>
-          ))}
-        </div>
-      </section>
-
-      {/* Education */}
-      <section className="mb-20">
-        <RevealOnScroll delay={120}>
-          <h2 className="mb-8 text-2xl font-semibold tracking-tight text-foreground">
-            Образование
-          </h2>
-        </RevealOnScroll>
-        <RevealOnScroll delay={240}>
-          <div className="border-l-2 border-border pl-6">
-            <h3 className="font-semibold text-foreground">Университет ИТМО, Компьютерные технологии в дизайне</h3>
-            <p className="mb-2 text-sm text-muted-foreground">2015 — 2019, Санкт-Петербург</p>
-            <p className="text-muted-foreground">
-              В качестве дипломного проекта разработала <a href="https://ekperegudova.github.io/nordicdesign.github.io/index.html" className="text-primary hover:underline">онлайн-музей</a> по истории скандинавского дизайна с интерактивными 3D-моделями легендарных изделий. 
-            </p>
           </div>
-        </RevealOnScroll>
-      </section>
-
-      {/* Skills */}
-      <section className="mb-20">
-        <RevealOnScroll delay={120}>
-          <h2 className="mb-8 text-2xl font-semibold tracking-tight text-foreground">
-            Навыки
-          </h2>
-        </RevealOnScroll>
-        <div className="flex flex-wrap gap-3">
-          {skills.map((skill, index) => (
-            <RevealOnScroll key={skill} delay={220 + index * 60}>
-              <span className="rounded-full bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground">
-                {skill}
-              </span>
-            </RevealOnScroll>
-          ))}
         </div>
       </section>
 
-      {/* CTA */}
-      <RevealOnScroll delay={160}>
-        <section className="rounded-xl border border-border/40 bg-card p-8 text-center">
-          <h2 className="mb-3 text-xl font-semibold text-foreground">
-            Будем на связи?
-          </h2>
-          <p className="mb-6 text-muted-foreground">
-            Я всегда открыта для сотрудничества
-          </p>
-          <div className="flex flex-col justify-center gap-3 sm:flex-row">
-            <Button asChild className="gap-2">
-              <a href="mailto:Katuush@mail.ru">
-                <Mail className="h-4 w-4" />
-                Написать на почту
-              </a>
-            </Button>
-            <Button asChild variant="outline" className="gap-2 bg-transparent">
-              <Link href="/gallery">
-                Посмотреть галерею
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-            </Button>
+      <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+        <section className="mb-20">
+          <RevealOnScroll delay={120}>
+            <h2 className="mb-8 text-2xl font-semibold tracking-tight text-foreground">
+              Мой подход
+            </h2>
+          </RevealOnScroll>
+          <div className="grid gap-6 sm:grid-cols-3">
+            {approach.map((item, index) => (
+              <RevealOnScroll key={item.title} delay={220 + index * 120}>
+                <div className="rounded-xl border border-white/0 bg-white/2 p-6 backdrop-blur-md shadow-[inset_0_1px_0_rgba(255,255,255,0.14),0_10px_30px_rgba(0,0,0,0.10)]">
+                  <h3 className="mb-2 font-semibold text-foreground">{item.title}</h3>
+                  <p className="text-sm leading-[1.4rem] text-muted-foreground">{item.description}</p>
+                </div>
+              </RevealOnScroll>
+            ))}
           </div>
         </section>
-      </RevealOnScroll>
+
+        <section className="mb-20">
+          <RevealOnScroll delay={120}>
+            <h2 className="mb-8 text-2xl font-semibold tracking-tight text-foreground">
+              Опыт работы
+            </h2>
+          </RevealOnScroll>
+          <div className="space-y-12">
+            {experience.map((job, index) => (
+              <RevealOnScroll key={`${job.company}-${job.role}`} delay={220 + index * 140}>
+                <div className="border-l border-white/10 pl-6">
+                  <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:gap-3">
+                    <h3 className="font-semibold text-foreground">{job.role}</h3>
+                    <span className="hidden text-muted-foreground sm:inline">•</span>
+                    <span className="text-primary">{job.company}</span>
+                  </div>
+                  <p className="mb-4 mt-2 text-sm text-muted-foreground">{job.period}</p>
+                  <p className="text-muted-foreground">{job.description}</p>
+                </div>
+              </RevealOnScroll>
+            ))}
+          </div>
+        </section>
+
+        <section className="mb-20">
+          <RevealOnScroll delay={120}>
+            <h2 className="mb-8 text-2xl font-semibold tracking-tight text-foreground">
+              Образование
+            </h2>
+          </RevealOnScroll>
+          <RevealOnScroll delay={240}>
+            <div className="border-l border-white/10 pl-6">
+              <h3 className="font-semibold text-foreground">Университет ИТМО, Компьютерные технологии в дизайне</h3>
+              <p className="mb-2 text-sm text-muted-foreground">2015 — 2019, Санкт-Петербург</p>
+              <p className="text-muted-foreground">
+                В качестве дипломного проекта разработала <a href="https://ekperegudova.github.io/nordicdesign.github.io/index.html" className="text-primary hover:underline">онлайн-музей</a> по истории скандинавского дизайна с интерактивными 3D-моделями легендарных изделий.
+              </p>
+            </div>
+          </RevealOnScroll>
+        </section>
+
+        <section className="mb-20">
+          <RevealOnScroll delay={120}>
+            <h2 className="mb-8 text-2xl font-semibold tracking-tight text-foreground">
+              Навыки
+            </h2>
+          </RevealOnScroll>
+          <div className="flex flex-wrap gap-4">
+            {skills.map((skill, index) => (
+              <RevealOnScroll key={skill} delay={220 + index * 60}>
+                <span className="rounded-full border border-white/0 bg-white/6 px-4 py-2 text-sm font-medium text-secondary-foreground">
+                  {skill}
+                </span>
+              </RevealOnScroll>
+            ))}
+          </div>
+        </section>
+
+        <RevealOnScroll delay={160}>
+          <section className="rounded-xl border border-white/0 bg-white/2 p-8 text-center backdrop-blur-md shadow-[inset_0_1px_0_rgba(255,255,255,0.14),0_10px_30px_rgba(0,0,0,0.10)]">
+            <h2 className="mb-3 text-xl font-semibold text-foreground">
+              Будем на связи?
+            </h2>
+            <p className="mb-6 text-muted-foreground">
+              Я всегда открыта для сотрудничества
+            </p>
+            <div className="flex flex-col justify-center gap-3 sm:flex-row">
+              <Button asChild className="gap-2">
+                <a href="mailto:Katuush@mail.ru">
+                  <Mail className="h-4 w-4" />
+                  Написать на почту
+                </a>
+              </Button>
+              <Button asChild variant="outline" className="gap-2 bg-transparent">
+                <Link href="/gallery">
+                  Посмотреть галерею
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </Button>
+            </div>
+          </section>
+        </RevealOnScroll>
+      </div>
     </div>
   )
 }
