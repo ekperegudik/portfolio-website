@@ -10,10 +10,105 @@ import { FigmaEmbed } from "@/components/FigmaEmbed";
 import { RevealOnScroll } from "@/components/RevealOnScroll";
 import { ProcessStepImage } from "@/components/ProcessStepImage";
 import { ProcessStepVideo } from "@/components/ProcessStepVideo";
+import { cn } from "@/lib/utils";
+import type { CSSProperties, ReactNode } from "react";
 import type { Metadata } from "next";
 interface PageProps {
   params: Promise<{ id: string }>;
 }
+
+const splitParagraphs = (text: string) =>
+  text
+    .split(/\r?\n\s*\r?\n/)
+    .map((paragraph) => paragraph.trim())
+    .filter(Boolean);
+
+interface ParagraphStackProps {
+  text: string;
+  className?: string;
+  paragraphClassName?: string;
+  paragraphGap?: string;
+  paragraphGapVar?: string;
+}
+
+const DEFAULT_PARAGRAPH_GAP = "clamp(0.75rem, 1vw, 1rem)";
+const PARAGRAPH_GAP_VAR = "--project-paragraph-gap";
+
+function ParagraphStack({
+  text,
+  className,
+  paragraphClassName,
+  paragraphGap = DEFAULT_PARAGRAPH_GAP,
+  paragraphGapVar,
+}: ParagraphStackProps) {
+  const paragraphs = splitParagraphs(text);
+
+  if (!paragraphs.length) {
+    return null;
+  }
+
+  const gapStyle: CSSProperties = paragraphGapVar
+    ? { gap: `var(${paragraphGapVar})` }
+    : { gap: paragraphGap };
+
+  return (
+    <div
+      className={cn(
+        "flex flex-col text-muted-foreground leading-[1.4rem]",
+        className,
+      )}
+      style={gapStyle}
+    >
+      {paragraphs.map((paragraph, index) => (
+        <p
+          key={`${index}-${paragraph}`}
+          className={cn("whitespace-pre-line", paragraphClassName)}
+        >
+          {paragraph}
+        </p>
+      ))}
+    </div>
+  );
+}
+
+interface ParagraphSectionProps {
+  title: string;
+  text: string;
+  paragraphGap?: string;
+  paragraphClassName?: string;
+  className?: string;
+  children?: ReactNode;
+}
+
+function ParagraphSection({
+  title,
+  text,
+  paragraphGap = DEFAULT_PARAGRAPH_GAP,
+  paragraphClassName,
+  className,
+  children,
+}: ParagraphSectionProps) {
+  const sectionStyle = {
+    [PARAGRAPH_GAP_VAR]: paragraphGap,
+  } as CSSProperties;
+
+  return (
+      <section className={cn("space-y-0", className)} style={sectionStyle}>
+        <h2
+          className="text-xl font-semibold tracking-tight text-foreground"
+          style={{ marginBottom: `calc(var(${PARAGRAPH_GAP_VAR}) * 1.5)` }}
+        >
+          {title}
+        </h2>
+        <ParagraphStack
+          text={text}
+          paragraphGapVar={PARAGRAPH_GAP_VAR}
+          paragraphClassName={paragraphClassName}
+        />
+        {children}
+      </section>
+    );
+  }
 
 export async function generateStaticParams() {
   return projects.map((project) => ({
@@ -121,38 +216,17 @@ export default async function ProjectPage({ params }: PageProps) {
       <div className="space-y-16">
         {/* Обзор */}
         <RevealOnScroll delay={120}>
-          <section>
-          <h2 className="mb-4 text-xl font-semibold tracking-tight text-foreground">
-            О продукте
-          </h2>
-          <p className="whitespace-pre-line leading-[1.4rem] text-muted-foreground">
-            {project.overview}
-          </p>
-          </section>
+          <ParagraphSection title="О продукте" text={project.overview} />
         </RevealOnScroll>
 
         {/* Проблема */}
         <RevealOnScroll delay={160}>
-          <section>
-          <h2 className="mb-4 text-xl font-semibold tracking-tight text-foreground">
-            Проблема
-          </h2>
-          <p className="leading-[1.4rem] text-muted-foreground">
-            {project.problem}
-          </p>
-          </section>
+          <ParagraphSection title="Проблема" text={project.problem} />
         </RevealOnScroll>
 
         {/* Решение */}
         <RevealOnScroll delay={200}>
-          <section>
-          <h2 className="mb-4 text-xl font-semibold tracking-tight text-foreground">
-            Решение
-          </h2>
-          <p className="whitespace-pre-line leading-[1.4rem] text-muted-foreground">
-            {project.solution}
-          </p>
-          </section>
+          <ParagraphSection title="Решение" text={project.solution} />
         </RevealOnScroll>
         {project.id === "KRU" && (
           <RevealOnScroll delay={240}>
@@ -261,32 +335,30 @@ export default async function ProjectPage({ params }: PageProps) {
 
         {/* Результат */}
         <RevealOnScroll delay={200}>
-          <section>
-          <h2 className="mb-4 text-xl font-semibold tracking-tight text-foreground">
-            Результат
-          </h2>
-          <p className="whitespace-pre-line mb-6 leading-relaxed text-muted-foreground">
-            {project.result}
-          </p>
-
-          {project.resultMetrics && (
-            <div className="grid gap-4 sm:grid-cols-3">
-              {project.resultMetrics.map((metric) => (
-                <div
-                  key={metric.label}
-                  className="rounded-lg border border-white/0 bg-white/2 p-6 text-center backdrop-blur-md shadow-[inset_0_1px_0_rgba(255,255,255,0.14),0_10px_30px_rgba(0,0,0,0.10)]"
-                >
-                  <div className="mb-1 text-2xl font-bold text-primary">
-                    {metric.value}
+          <ParagraphSection
+            title="Результат"
+            text={project.result}
+            paragraphClassName="text-sm leading-relaxed"
+            className="space-y-6"
+          >
+            {project.resultMetrics && (
+              <div className="grid gap-4 sm:grid-cols-3">
+                {project.resultMetrics.map((metric) => (
+                  <div
+                    key={metric.label}
+                    className="rounded-lg border border-white/0 bg-white/2 p-6 text-center backdrop-blur-md shadow-[inset_0_1px_0_rgba(255,255,255,0.14),0_10px_30px_rgba(0,0,0,0.10)]"
+                  >
+                    <div className="mb-1 text-2xl font-bold text-primary">
+                      {metric.value}
+                    </div>
+                    <div className="text-sm text-muted-foreground">
+                      {metric.label}
+                    </div>
                   </div>
-                  <div className="text-sm text-muted-foreground">
-                    {metric.label}
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
-          </section>
+                ))}
+              </div>
+            )}
+          </ParagraphSection>
         </RevealOnScroll>
       </div>
 

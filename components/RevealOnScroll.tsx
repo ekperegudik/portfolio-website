@@ -51,7 +51,7 @@ export function RevealOnScroll({
     <div
       ref={ref}
       className={cn(
-        "transition-all duration-1200 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none",
+        "transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none",
         isVisible
           ? "translate-y-0 opacity-100 blur-0"
           : "translate-y-4 opacity-0 blur-xs motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:blur-0",

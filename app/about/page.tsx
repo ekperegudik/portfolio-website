@@ -1,10 +1,8 @@
 import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
-import { Button } from "@/components/ui/button";
-import { Mail } from "lucide-react";
-import { FaTelegramPlane, FaLinkedin } from "react-icons/fa"
-import { MdEmail } from "react-icons/md" 
 import { RevealOnScroll } from "@/components/RevealOnScroll";
 import type { Metadata } from "next";
+import { FaTelegramPlane, FaLinkedin } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
 
 export const metadata: Metadata = {
   title: "Обо мне — Катерина Перегудова",
@@ -81,17 +79,17 @@ const skills = [
 
 const approach = [
   {
-    title: "Структурность",
+    title: "Системный подход",
     description:
       "Победить энтропию и боязнь белого листа мне помогают CJM, JTBD, информационные, функциональные и навигационные модели.",
   },
   {
-    title: "Внимательность",
+    title: "Внимание к деталям",
     description:
       "На доверие пользователей влияет не только удобство сценариев, но и чистый, аккуратный визуал. Мелочи создают общее впечатление.",
   },
   {
-    title: "Интуитивность",
+    title: "Интуитивный дизайн",
     description:
       "Превосходный дизайн остаётся незамеченным. Если пользователь задумался о работе дизайнера, значит есть к чему стремиться.",
   },
@@ -106,7 +104,7 @@ export default function AboutPage() {
             <RevealOnScroll delay={120}>
               <div className="relative mx-auto w-[min(78vw,360px)] shrink-0 overflow-hidden rounded-2xl aspect-[3/4] lg:mx-0 lg:w-[340px]">
                 <ImageWithSkeleton
-                  src="/about/profile1.png"
+                  src="/about/alternative3.jpeg"
                   alt="Катерина Перегудова"
                   fill
                   className="object-cover object-center"
@@ -129,32 +127,49 @@ export default function AboutPage() {
               <p className="mb-8 leading-[1.4rem] text-muted-foreground">
                 За 7 лет профессионального опыта "дотянулась" до нефтегазовой и
                 угольной промышленностей, GIS-систем и travel-tech,
-                проектировала дашборды для ТОП-менеджеров Газпромнефти и
+                проектировала дашборды для ТОП-менеджеров ПАО "Газпромнефть" и
                 интерфейсы для электромобиля АТОМ. Люблю сложные задачи и
                 нетривиальные решения.
               </p>
-              <div className="flex flex-col gap-3 sm:flex-row">
-                <Button
-                  asChild
-                  variant="outline"
-                  className="gap-2 bg-transparent"
+              <div className="flex flex-row flex-wrap items-center gap-3">
+                <a
+                  href="https://t.me/ekperegudova"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-foreground hover:bg-white/10 transition"
                 >
-                  <a href="mailto:Katuush@mail.ru">
-                    <Mail className="h-4 w-4" />
-                    Написать мне
-                  </a>
-                </Button>
+                  <FaTelegramPlane className="w-4 h-4" />
+                  Telegram
+                </a>
+
+                <a
+                  href="https://linkedin.com/in/ekperegudova"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-foreground hover:bg-white/10 transition"
+                >
+                  <FaLinkedin className="w-4 h-4" />
+                  LinkedIn
+                </a>
+
+                <a
+                  href="mailto:Katuush@mail.ru"
+                  className="flex items-center justify-center gap-2 rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-foreground hover:bg-white/10 transition"
+                >
+                  <MdEmail className="w-4 h-4" />
+                  Email
+                </a>
               </div>
             </RevealOnScroll>
           </div>
         </div>
       </section>
 
-      <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+        <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
         <section className="mb-20">
           <RevealOnScroll delay={120}>
             <h2 className="mb-8 text-2xl font-semibold tracking-tight text-foreground">
-              Мой подход
+              Принципы проектирования
             </h2>
           </RevealOnScroll>
           <div className="grid gap-6 sm:grid-cols-3">
@@ -255,45 +270,6 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <RevealOnScroll delay={160}>
-          <section className="rounded-xl border border-white/0 bg-white/2 p-8 text-center backdrop-blur-md shadow-[inset_0_1px_0_rgba(255,255,255,0.14),0_10px_30px_rgba(0,0,0,0.10)]">
-            <h2 className="mb-3 text-xl font-semibold text-foreground">
-              Будем на связи?
-            </h2>
-            <p className="mb-6 text-muted-foreground">
-              Я всегда открыта для сотрудничества
-            </p>
-            <div className="flex flex-col justify-center gap-3 sm:flex-row">
-              <a
-                href="https://t.me/ekperegudova"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-foreground hover:bg-white/10 transition"
-              >
-                <FaTelegramPlane className="w-4 h-4" />
-                Telegram
-              </a>
-
-              <a
-                href="https://linkedin.com/in/ekperegudova"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-foreground hover:bg-white/10 transition"
-              >
-                <FaLinkedin className="w-4 h-4" />
-                LinkedIn
-              </a>
-
-              <a
-                href="mailto:Katuush@mail.ru"
-                className="flex items-center justify-center gap-2 rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-foreground hover:bg-white/10 transition"
-              >
-                <MdEmail className="w-4 h-4" />
-                Email
-              </a>
-            </div>
-          </section>
-        </RevealOnScroll>
       </div>
     </div>
   );
