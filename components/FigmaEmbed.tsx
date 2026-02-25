@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import { Skeleton } from "@/components/ui/skeleton";
+import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
 
 interface FigmaEmbedProps {
   src: string;
@@ -33,11 +33,12 @@ export function FigmaEmbed({ src, title, coverImage }: FigmaEmbedProps) {
             fadeOverlay ? "opacity-0" : "opacity-100"
           }`}
         >
-          <Image
+          <ImageWithSkeleton
             src={coverImage || "/placeholder.svg"}
             alt={`${title} cover`}
             fill
             className="object-cover"
+            skeletonClassName="bg-background/50"
             priority
           />
           <div className="absolute inset-0 bg-background/60 p-5">

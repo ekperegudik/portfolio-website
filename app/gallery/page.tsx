@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 // import GalleryClient from "@/components/GalleryClient"
 import { RevealOnScroll } from "@/components/RevealOnScroll";
+import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
 
 export const metadata: Metadata = {
   title: "Галерея — Катерина Перегудова",
@@ -24,12 +25,17 @@ export default function Page() {
         <div className="hidden">{/* <GalleryClient /> */}</div>
       ) : (
         <RevealOnScroll delay={240}>
-          <div className="flex flex-col items-center justify-center gap-6 rounded-xl border border-white/0 bg-white/0 p-16 text-center backdrop-blur-md]">
-            <img
-              src="/projects/memes.jpg"
-              alt="Under construction"
-              className="mx-auto w-40 sm:w-40 rounded-xl"
-            />
+          <div className="flex flex-col items-center justify-center gap-6 rounded-xl border border-white/0 bg-white/0 p-16 text-center backdrop-blur-md">
+            <div className="relative h-40 w-40 rounded-xl">
+              <ImageWithSkeleton
+                src="/projects/memes.jpg"
+                alt="Under construction"
+                fill
+                sizes="10rem"
+                className="rounded-xl object-cover"
+                skeletonClassName="bg-white/10"
+              />
+            </div>
             <p className="mt-4 text-sm text-muted-foreground max-w-md">
               Никак не выберу лучшие! В любом случае, скоро здесь появится много
               интересного. Следите за обновлениями.

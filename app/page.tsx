@@ -1,12 +1,12 @@
-import { projects } from "@/lib/projects"
-import { ProjectCard } from "@/components/project-card"
-import { RevealOnScroll } from "@/components/RevealOnScroll"
-import { AnimatedHeadline } from "@/components/AnimatedHeadline"
-import { Button } from "@/components/ui/button"
-import { Download, ArrowRight } from "lucide-react"
-import Link from "next/link"
-import { FaTelegramPlane, FaLinkedin } from "react-icons/fa"
-import { MdEmail } from "react-icons/md"
+import { projects } from "@/lib/projects";
+import { ProjectCard } from "@/components/project-card";
+import { RevealOnScroll } from "@/components/RevealOnScroll";
+import { AnimatedHeadline } from "@/components/AnimatedHeadline";
+import { Button } from "@/components/ui/button";
+import { Download, ArrowRight } from "lucide-react";
+import Link from "next/link";
+import { FaTelegramPlane, FaLinkedin } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
 
 export default function HomePage() {
   return (
@@ -26,25 +26,37 @@ export default function HomePage() {
                 className="mb-4 text-4xl sm:text-5xl lg:text-6xl"
                 segments={[
                   { text: "Сложные интерфейсы, " },
-                  { text: "интуитивное взаимодействие", className: "text-primary" },
+                  {
+                    text: "интуитивное взаимодействие",
+                    className: "text-primary",
+                  },
                 ]}
               />
             </RevealOnScroll>
             <RevealOnScroll delay={320}>
               <p className="mb-8 text-lg leading-[1.8rem] text-muted-foreground sm:text-xl">
-                Аналитическое мышление, пытливый ум и 7 лет опыта.
-                Работала в крупных компаниях и молодых стартапах. Проектировала Enterprise-платформы, интерфейсы GIS, in-car и AI-систем.
+                Аналитическое мышление, пытливость ума и 7 лет в продуктовой среде.
+                Опыт в крупных компаниях и стартапах. Проектирование
+                Enterprise-платформ, GIS-интерфейсов, in-car и AI-систем.
               </p>
             </RevealOnScroll>
             <RevealOnScroll delay={560}>
               <div className="flex flex-col gap-4 sm:flex-row">
                 <Button asChild size="lg" className="gap-2">
-                  <a href="https://disk.yandex.ru/i/ASC9Xzl24TqZUQ" target="_blank">
+                  <a
+                    href="/resume-peregudova.pdf"
+                    download="resume-peregudova.pdf"
+                  >
                     <Download className="h-4 w-4" />
                     Скачать резюме
                   </a>
                 </Button>
-                <Button asChild variant="outline" size="lg" className="gap-2 bg-transparent">
+                <Button
+                  asChild
+                  variant="outline"
+                  size="lg"
+                  className="gap-2 bg-transparent"
+                >
                   <Link href="/about">
                     Обо мне
                     <ArrowRight className="h-4 w-4" />
@@ -124,5 +136,5 @@ export default function HomePage() {
         </RevealOnScroll>
       </div>
     </div>
-  )
+  );
 }
