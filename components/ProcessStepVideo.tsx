@@ -37,33 +37,35 @@ export function ProcessStepVideo({
 
   if (frameVariant === "wheel") {
     return (
-      <div className="relative w-full overflow-hidden bg-black" style={{ aspectRatio: "1690 / 780" }}>
-        <ImageWithSkeleton
-          src="/projects/wheel.svg"
-          alt="Руль автомобиля"
-          fill
-          className="object-contain"
-          skeletonClassName="bg-white/10"
-          priority={false}
-        />
-
-        <div className="absolute left-[28.4%] top-[23.3%] h-[44.4%] w-[36.8%] overflow-hidden rounded-xl bg-black shadow-[0_8px_24px_rgba(0,0,0,0.45)]">
-          <video
-            ref={videoRef}
-            src={src}
-            className="h-full w-full object-contain"
-            autoPlay={true} 
-            muted
-            loop
-            playsInline
-            controls={false}
-            controlsList="nodownload noplaybackrate noremoteplayback"
-            disablePictureInPicture
-            disableRemotePlayback
-            onContextMenu={(event) => event.preventDefault()}
-            preload="metadata"
+      <div className="relative w-full overflow-hidden" style={{ aspectRatio: "1690 / 780" }}>
+        <div className="absolute inset-0 translate-x-[1.8%]">
+          <ImageWithSkeleton
+            src="/projects/wheel.svg"
+            alt="Руль автомобиля"
+            fill
+            className="object-contain object-center"
+            skeletonClassName="bg-white/10"
+            priority={false}
           />
-          <div className="pointer-events-none absolute inset-0 ring-1 ring-white/8" />
+
+          <div className="absolute left-[28.4%] top-[23.3%] h-[44.4%] w-[36.8%] overflow-hidden rounded-xl bg-black shadow-[0_8px_24px_rgba(0,0,0,0.45)]">
+            <video
+              ref={videoRef}
+              src={src}
+              className="h-full w-full object-contain"
+              autoPlay={true} 
+              muted
+              loop
+              playsInline
+              controls={false}
+              controlsList="nodownload noplaybackrate noremoteplayback"
+              disablePictureInPicture
+              disableRemotePlayback
+              onContextMenu={(event) => event.preventDefault()}
+              preload="metadata"
+            />
+            <div className="pointer-events-none absolute inset-0 ring-1 ring-white/8" />
+          </div>
         </div>
       </div>
     );

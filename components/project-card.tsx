@@ -1,14 +1,16 @@
 import Link from "next/link"
 import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton"
 import type { Project } from "@/lib/projects"
+import type { Locale } from "@/lib/i18n"
 
 interface ProjectCardProps {
   project: Project
+  locale: Locale
 }
 
-export function ProjectCard({ project }: ProjectCardProps) {
+export function ProjectCard({ project, locale }: ProjectCardProps) {
   return (
-    <Link href={`/projects/${project.id}`} className="group block">
+    <Link href={`/${locale}/projects/${project.id}`} className="group block">
       <article className="flex h-full flex-col overflow-hidden rounded-lg border border-white/1 bg-white/2 backdrop-blur-md shadow-[inset_0_1px_0_rgba(255,255,255,0.14),0_10px_30px_rgba(0,0,0,0.10)] transition-all duration-300 hover:border-white/12 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.22),0_0_0_1px_rgba(255,255,255,0.08),0_14px_36px_rgba(0,0,0,0.16),0_0_28px_rgba(196,221,255,0.10)]">
         <div className="relative aspect-[16/10] overflow-hidden bg-background/10">
           <ImageWithSkeleton
